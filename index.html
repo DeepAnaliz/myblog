@@ -1,0 +1,2265 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Analiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8RHPQPJ3KJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-8RHPQPJ3KJ');
+    </script>
+
+    <style>
+        /* Genel Stil Ayarları */
+        body {
+            font-family: 'Open Sans', sans-serif; /* Açık ve okunaklı bir font */
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s ease, color 0.3s ease; /* Dark mode geçişi için */
+        }
+
+        /* Dark Mode Stilleri */
+        body.dark-mode {
+            background-color: #1a1a1a; /* Daha koyu arka plan */
+            color: #f4f4f4;
+        }
+
+        body.dark-mode header {
+            background: #0d0d0d; /* Daha da koyu başlık */
+        }
+
+        body.dark-mode header nav a:hover {
+            background: #2a2a2a;
+        }
+
+        body.dark-mode .category-menu-button {
+            background-color: #333;
+        }
+        body.dark-mode .category-menu-button:hover {
+            background-color: #555;
+        }
+
+        body.dark-mode .category-dropdown-content {
+            background-color: #2a2a2a; /* Daha koyu dropdown */
+            box-shadow: 0px 8px 16px 0px rgba(255,255,255,0.1);
+        }
+
+        body.dark-mode .category-dropdown-content a {
+            color: #f4f4f4;
+            border-bottom: 1px solid #3a3a3a;
+        }
+
+        body.dark-mode .category-dropdown-content a:hover {
+            background-color: #4a4a4a;
+        }
+
+        body.dark-mode .search-container {
+            background: #2a2a2a; /* Daha koyu arama konteyneri */
+            border-bottom: 1px solid #3a3a3a;
+            box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+        }
+
+        body.dark-mode .search-container input[type="text"] {
+            background-color: #3a3a3a;
+            color: #f4f4f4;
+            border-color: #555;
+        }
+
+        body.dark-mode .search-container input[type="text"]:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+        }
+
+        body.dark-mode .welcome-section {
+            background-color: #004085; /* Dark mode için daha koyu mavi */
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .main-content,
+        body.dark-mode .about-section,
+        body.dark-mode .favorites-section,
+        body.dark-mode .comments-section-main,
+        body.dark-mode #donation-info,
+        body.dark-mode .single-post-section,
+        body.dark-mode .privacy-policy-section { /* Yeni tek yazı bölümü ve gizlilik politikası */
+            background: #2a2a2a; /* Ana içerik bölümleri daha koyu */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode .blog-post {
+            border-bottom: 1px solid #3a3a3a;
+            box-shadow: 0 2px 8px rgba(255,255,255,0.05); /* Dark mode için kart gölgesi */
+        }
+        body.dark-mode .blog-post:hover {
+            box-shadow: 0 4px 15px rgba(255,255,255,0.1); /* Dark mode için hover gölgesi */
+        }
+
+        body.dark-mode .blog-post h2 {
+            color: #88bbff; /* Daha açık mavi */
+        }
+        body.dark-mode .blog-post h2:hover {
+            color: #aaddff; /* Hover rengi */
+        }
+
+
+        body.dark-mode .blog-post .post-meta {
+            color: #bbb;
+        }
+
+        body.dark-mode .read-more {
+            background: #0056b3;
+        }
+        body.dark-mode .read-more:hover {
+            background: #003d7a;
+        }
+
+        body.dark-mode .social-share a {
+            color: #bbb;
+        }
+
+        /* Reklam alanı kaldırıldığı için bu stil kaldırıldı
+        body.dark-mode .ad-space {
+            background-color: #3a3a3a;
+            border: 1px dashed #666;
+            color: #bbb;
+        }
+        */
+
+        body.dark-mode footer {
+            background: #0d0d0d; /* Daha da koyu alt bilgi */
+        }
+
+        body.dark-mode .favorite-button {
+            background-color: #28a745;
+            color: white;
+        }
+        body.dark-mode .favorite-button:hover {
+            background-color: #218838;
+        }
+        body.dark-mode .favorite-button.added {
+            background-color: #ffc107;
+            color: #333;
+        }
+        body.dark-mode .favorite-button.added:hover {
+            background-color: #e0a800;
+        }
+
+        body.dark-mode .series-list, body.dark-mode .category-posts-list {
+            background-color: #3a3a3a; /* Seri/kategori listeleri daha koyu */
+            border: 1px solid #555;
+        }
+        body.dark-mode .series-list h5, body.dark-mode .category-posts-list h5 {
+            color: #f4f4f4;
+        }
+        body.dark-mode .series-list ul li a, body.dark-mode .category-posts-list ul li a {
+            color: #aaddff;
+            background-color: #4a4a4a; /* Liste öğeleri daha koyu */
+        }
+        body.dark-mode .series-list ul li a.current-post, body.dark-mode .category-posts-list ul li a.current-post {
+            color: #f4f4f4;
+            font-weight: bold;
+            background-color: #0056b3; /* Mevcut yazı daha koyu */
+        }
+        body.dark-mode .series-list ul li a:hover, body.dark-mode .category-posts-list ul li a:hover {
+            background-color: #5a5a5a;
+        }
+
+        /* Bağış Bilgisi Bölümü */
+        body.dark-mode #donation-info .donation-option-card {
+            background-color: #3a3a3a; /* Bağış kartı daha koyu */
+            border: 1px solid #555;
+            box-shadow: 0 2px 5px rgba(255,255,255,0.05);
+        }
+        body.dark-mode #donation-info .donation-option-card:hover {
+            box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+        }
+
+        body.dark-mode #donation-info .donation-option-card h4 {
+            color: #66b3ff;
+        }
+
+        body.dark-mode #donation-info .iban-display {
+            background-color: #4a4a4a; /* IBAN alanı daha koyu */
+            color: #f4f4f4;
+        }
+
+        body.dark-mode #donation-info .copy-button {
+            background-color: #0056b3;
+        }
+        body.dark-mode .copy-button:hover {
+            background-color: #003d7a;
+        }
+
+        body.dark-mode #copy-message {
+            color: #90ee90; /* Açık yeşil */
+        }
+
+        body.dark-mode .warning-text {
+            color: #ff6b6b; /* Açık kırmızı */
+        }
+
+        /* Yeni Eklenen Reklam Alanı Stilleri kaldırıldı */
+        /*
+        .ad-space-large {
+            background-color: #f0f0f0;
+            border: 1px dashed #ccc;
+            text-align: center;
+            padding: 30px;
+            margin: 30px auto;
+            color: #555;
+            font-style: italic;
+            border-radius: 8px;
+            max-width: 700px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .ad-space-large:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        body.dark-mode .ad-space-large {
+            background-color: #3a3a3a;
+            border: 1px dashed #666;
+            color: #bbb;
+            box-shadow: 0 2px 8px rgba(255,255,255,0.05);
+        }
+
+        body.dark-mode .ad-space-large:hover {
+            box-shadow: 0 4px 15px rgba(255,255,255,0.1);
+        }
+        */
+
+        /* Yeni küçük reklam alanı kaldırıldı */
+        /*
+        .ad-space-small {
+            background-color: #e0f7fa;
+            border: 1px solid #b2ebf2;
+            text-align: center;
+            padding: 15px;
+            margin: 20px auto;
+            color: #00796b;
+            font-style: italic;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .ad-space-small:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        body.dark-mode .ad-space-small {
+            background-color: #1c313a;
+            border: 1px solid #4dd0e1;
+            color: #80deea;
+            box-shadow: 0 2px 5px rgba(255,255,255,0.05);
+        }
+        body.dark-mode .ad-space-small:hover {
+            box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+        }
+        */
+
+
+        .container {
+            width: 90%; /* Daha geniş bir görünüm için */
+            max-width: 1200px; /* Maksimum genişlik sınırı */
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Başlık Alanı */
+        header {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            position: relative; /* For absolute positioning of buttons */
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            display: flex; /* Make header a flex container */
+            flex-direction: column; /* Default to column for mobile, then adjust for desktop */
+            align-items: center; /* Center items horizontally */
+            padding-top: 60px; /* Make space for absolutely positioned buttons */
+            padding-bottom: 20px;
+        }
+
+        header nav ul {
+            padding: 0;
+            list-style: none;
+            display: flex; /* Menü öğelerini yan yana hizala */
+            justify-content: center; /* Ortala */
+            margin: 0; /* Varsayılan marginleri kaldır */
+        }
+
+        header nav ul li {
+            padding: 0 10px; /* Daha az boşluk */
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 12px; /* Daha kompakt butonlar */
+            border-radius: 8px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+            font-size: 0.95em; /* Daha küçük font boyutu */
+        }
+
+        header nav a:hover {
+            background: #555;
+            transform: translateY(-2px);
+        }
+
+        /* Kategori Menüsü Stilleri */
+        .category-menu-container {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .category-menu-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .category-menu-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .category-menu-button .icon {
+            font-size: 1.2em;
+        }
+
+        .category-dropdown-content {
+            display: none;
+            position: absolute; /* Dropdown'ın konumunu koru */
+            background-color: #f9f9f9;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 8px;
+            margin-top: 10px;
+            overflow: hidden;
+            left: 0; /* Kategori butonuna göre hizala */
+            top: 100%; /* Kategori butonunun altına yerleştir */
+        }
+
+        body.dark-mode .category-dropdown-content {
+            background-color: #2a2a2a; /* Daha koyu dropdown */
+            box-shadow: 0px 8px 16px 0px rgba(255,255,255,0.1);
+        }
+
+        .category-dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            transition: background-color 0.2s ease, padding-left 0.2s ease;
+            border-bottom: 1px solid #eee;
+        }
+
+        .category-dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .category-dropdown-content a:hover {
+            background-color: #e0e0e0;
+            padding-left: 20px;
+        }
+
+        .category-dropdown-content.show {
+            display: block;
+        }
+
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #6c757d;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: #5a6268;
+            transform: translateY(-2px);
+        }
+        .dark-mode-toggle .icon {
+            font-size: 1.2em;
+        }
+
+
+        /* Arama Çubuğu Stilleri */
+        .search-container {
+            padding: 20px;
+            background: #e9e9e9;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px auto 0 auto;
+            max-width: 960px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .search-container input[type="text"] {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 70%;
+            max-width: 450px;
+            font-size: 1.1em;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .search-container button {
+            padding: 12px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-left: 10px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .search-container button:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+
+        /* Anasayfa Karşılama Bölümü */
+        .welcome-section {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 960px;
+            margin: 20px auto;
+        }
+
+        .welcome-section h2 {
+            font-family: 'Poppins', sans-serif;
+            margin-top: 0;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+        }
+
+        .welcome-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Ana İçerik Alanı (Blog Yazıları) */
+        .main-content {
+            padding: 20px;
+            max-width: 960px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: block;
+        }
+
+        .blog-post {
+            background-color: #fff;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .blog-post:last-child {
+            border-bottom: none;
+        }
+
+        .blog-post h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #007bff;
+            margin-top: 0;
+            font-size: 2em;
+            cursor: pointer; /* Başlıkların tıklanabilir olduğunu belirtmek için */
+            transition: color 0.3s ease;
+        }
+        .blog-post h2:hover {
+            color: #0056b3; /* Hover rengi */
+        }
+
+        .blog-post .post-meta {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .blog-post .post-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .blog-post p {
+            margin-bottom: 10px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .read-more {
+            display: inline-block;
+            background: #007bff;
+            color: #fff;
+            padding: 10px 18px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+        }
+
+        .read-more:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Sosyal Medya Paylaşım Butonları */
+        .social-share {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-share a {
+            display: inline-block;
+            margin: 0 8px;
+            font-size: 1.8em;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+        .social-share a:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Font Awesome ikonları için renkler */
+        .social-share a.fa-facebook-f:hover { color: #3b5998; }
+        .social-share a.fa-twitter:hover { color: #1da1f2; }
+        .social-share a.fa-linkedin-in:hover { color: #0077b5; }
+        .social-share a.fa-whatsapp:hover { color: #25d366; }
+
+
+        /* Reklam Alanı kaldırıldı */
+        /*
+        .ad-space {
+            background-color: #f0f0f0;
+            border: 1px dashed #ccc;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            color: #555;
+            font-style: italic;
+            border-radius: 8px;
+        }
+        */
+
+        /* Alt Bilgi */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        /* Bağış Bilgisi Bölümü */
+        #donation-info {
+            background-color: #fff;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 960px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Ortalamak için */
+            display: none;
+        }
+
+        #donation-info h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #28a745;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2em;
+        }
+
+        #donation-info p {
+            font-size: 1.05em;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Bağış kartı ve IBAN kısımları kaldırıldı */
+        /*
+        #donation-info .donation-option-card {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 30px auto;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #donation-info .donation-option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        #donation-info .donation-option-card h4 {
+            font-family: 'Poppins', sans-serif;
+            color: #007bff;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        #donation-info .donation-option-card p {
+            font-size: 0.95em;
+            color: #666;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        #donation-info .iban-display {
+            font-family: 'Courier New', monospace;
+            background-color: #e9e9e9;
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: block;
+            margin-bottom: 10px;
+            word-break: break-all;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        #donation-info .copy-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        #donation-info .copy-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        #copy-message {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: green;
+            display: none;
+            text-align: center;
+        }
+
+        .warning-text {
+            font-size: 0.85em;
+            color: #dc3545;
+            margin-top: 10px;
+            text-align: center;
+        }
+        */
+
+        /* Hakkımızda Bölümü Stilleri */
+        .about-section {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            max-width: 960px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-section h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #007bff;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .about-section img {
+            max-width: 250px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 25px;
+            border: 4px solid #007bff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            object-fit: cover;
+        }
+
+        .about-section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-align: justify;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-section ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+
+        .about-section ul li {
+            font-size: 1.05em;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .back-button {
+            display: inline-block;
+            background: #6c757d;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 30px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+        }
+        .back-button:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        /* Modal Stilleri (Alert yerine kullanılacak) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: center;
+            position: relative;
+        }
+        body.dark-mode .modal-content {
+            background-color: #2a2a2a; /* Modal içeriği de koyu modda */
+            border: 1px solid #555;
+            color: #f4f4f4;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        body.dark-mode .close-button {
+            color: #bbb;
+        }
+        body.dark-mode .close-button:hover,
+        body.dark-mode .close-button:focus {
+            color: #eee;
+        }
+
+
+        /* Sayfalama Butonları */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+
+        .pagination button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .pagination button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        /* Yukarı Çık Butonu */
+        #scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        #scroll-to-top:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Ana Yorum Bölümü Stilleri */
+        .comments-section-main {
+            background-color: #fff;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 960px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: none;
+        }
+
+        .comments-section-main h4 {
+            font-family: 'Poppins', sans-serif;
+            color: #007bff;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .comments-section-main textarea {
+            width: calc(100% - 20px);
+            min-height: 120px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1em;
+            resize: vertical;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .comments-section-main textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+            outline: none;
+        }
+
+        .comments-section-main button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .comments-section-main button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        .comments-section-main .placeholder-text {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 15px;
+        }
+
+
+        /* Favorilerim Sayfası Stilleri */
+        .favorites-section {
+            display: none;
+            padding: 20px;
+            max-width: 960px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .favorites-section h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #007bff;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+        }
+
+        .favorites-section .empty-message {
+            text-align: center;
+            color: #555;
+            font-size: 1.1em;
+            padding: 30px;
+            border: 1px dashed #ccc;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        /* Favori Butonu Stilleri */
+        .favorite-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #28a745;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .favorite-button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+
+        .favorite-button.added {
+            background-color: #ffc107;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .favorite-button.added:hover {
+            background-color: #e0a800;
+        }
+
+        .favorite-button .fa-star {
+            color: white;
+        }
+
+        .favorite-button.added .fa-star {
+            color: #333;
+        }
+
+        /* Seri Yazılar Listesi Stilleri (Modal İçinde) */
+        .series-list, .category-posts-list {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        .series-list h5, .category-posts-list h5 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3em;
+            color: #007bff;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .series-list ul, .category-posts-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .series-list ul li, .category-posts-list ul li {
+            margin-bottom: 8px;
+        }
+
+        .series-list ul li a, .category-posts-list ul li a {
+            display: block;
+            padding: 8px 12px;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .series-list ul li a.current-post, .category-posts-list ul li a.current-post {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+
+        .series-list ul li a:hover:not(.current-post), .category-posts-list ul li a:hover:not(.current-post) {
+            background-color: #ddd;
+            transform: translateX(3px);
+        }
+
+        /* Tekil Yazı Sayfası Stilleri */
+        .single-post-section {
+            display: none;
+            padding: 30px;
+            max-width: 960px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .single-post-section h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #007bff;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .single-post-section .post-meta {
+            font-size: 1em;
+            color: #777;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .single-post-section .post-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 25px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .single-post-section p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .single-post-section .back-to-blog-button {
+            display: inline-block;
+            background: #6c757d;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 30px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+        }
+        .single-post-section .back-to-blog-button:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        /* Gizlilik Politikası Sayfası Stilleri */
+        .privacy-policy-section {
+            display: none; /* Başlangıçta gizli */
+            padding: 30px;
+            max-width: 960px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left; /* Metni sola hizala */
+        }
+
+        body.dark-mode .privacy-policy-section {
+            background: #2a2a2a;
+            color: #f4f4f4;
+        }
+
+        .privacy-policy-section h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #007bff;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        body.dark-mode .privacy-policy-section h2 {
+            color: #88bbff;
+        }
+
+        .privacy-policy-section h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #007bff;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        body.dark-mode .privacy-policy-section h3 {
+            color: #aaddff;
+        }
+
+        .privacy-policy-section p, .privacy-policy-section ul {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        body.dark-mode .privacy-policy-section p, body.dark-mode .privacy-policy-section ul {
+            color: #f4f4f4;
+        }
+
+        .privacy-policy-section ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .privacy-policy-section ul li {
+            margin-bottom: 8px;
+        }
+
+
+        /* Responsive Tasarım */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            header {
+                flex-direction: column; /* Header öğeleri dikey olarak sıralanır */
+                align-items: center; /* Öğeleri yatayda ortala */
+                padding: 1rem 15px;
+                padding-top: 60px; /* Make space for absolutely positioned buttons */
+                padding-bottom: 20px;
+            }
+
+            header nav {
+                width: 100%; /* Navigasyon tam genişlik kapla */
+                margin-top: 15px; /* Space between buttons and nav */
+            }
+
+            header nav ul {
+                flex-direction: row; /* Nav öğeleri yatay kalsın */
+                justify-content: space-around; /* Öğeleri eşit dağıt */
+                padding: 0;
+                /* flex-wrap: wrap; REMOVED */
+            }
+
+            header nav ul li {
+                padding: 0; /* Remove padding from li */
+                flex-basis: 25%; /* Each takes 1/4 of the space */
+                max-width: 25%; /* Ensure it doesn't exceed 1/4 width */
+                box-sizing: border-box;
+                text-align: center;
+                margin-bottom: 0; /* No need for bottom margin if on one line */
+            }
+
+            header nav a {
+                display: block; /* Make the link fill the li */
+                width: 100%; /* Make the link fill the li */
+                padding: 8px 0px; /* Adjust padding for links, remove horizontal padding */
+                font-size: 0.85em; /* Smaller font for links on mobile */
+                white-space: nowrap; /* Prevent text from wrapping inside button */
+                overflow: hidden; /* Hide overflow if text is too long */
+                text-overflow: ellipsis; /* Add ellipsis if text is too long */
+            }
+
+            .search-container input[type="text"] {
+                width: 90%;
+                margin-bottom: 10px;
+            }
+
+            .search-container button {
+                width: 90%;
+                margin-left: 0;
+            }
+
+            .welcome-section h2 {
+                font-size: 2.2em;
+            }
+
+            .welcome-section p {
+                font-size: 1.1em;
+            }
+
+            .blog-post h2 {
+                font-size: 1.8em;
+            }
+
+            .social-share a {
+                font-size: 1.5em;
+                margin: 0 5px;
+            }
+
+            .about-section h3 {
+                font-size: 1.8em;
+            }
+
+            .about-section img {
+                max-width: 180px;
+            }
+
+            #scroll-to-top {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px;
+                font-size: 1.2em;
+            }
+
+            .comments-section-main textarea {
+                width: calc(100% - 40px);
+            }
+
+            .single-post-section h2 {
+                font-size: 2em;
+            }
+            .single-post-section p {
+                font-size: 1em;
+            }
+
+            .privacy-policy-section h2 {
+                font-size: 2em;
+            }
+            .privacy-policy-section h3 {
+                font-size: 1.5em;
+            }
+            .privacy-policy-section p, .privacy-policy-section ul {
+                font-size: 1em;
+            }
+        }
+
+        /* Desktop adjustments (reverse column for desktop) */
+        @media (min-width: 769px) {
+            header {
+                flex-direction: row; /* Back to row for desktop */
+                justify-content: space-between; /* Distribute items */
+                padding: 1rem 20px; /* Restore desktop padding */
+                padding-top: 1rem; /* Remove extra top padding */
+                padding-bottom: 1rem;
+            }
+
+            .category-menu-container {
+                position: static; /* Remove absolute positioning on desktop */
+            }
+
+            .dark-mode-toggle {
+                position: static; /* Remove absolute positioning on desktop */
+            }
+
+            header nav {
+                width: auto; /* Allow nav to size naturally */
+                margin-top: 0;
+            }
+
+            header nav ul li {
+                flex-basis: auto; /* Remove flex-basis for desktop */
+                max-width: none;
+                padding: 0 10px; /* Restore desktop padding */
+            }
+
+            header nav a {
+                padding: 8px 15px; /* Restore desktop padding */
+                font-size: 0.95em; /* Restore desktop font size */
+                white-space: normal;
+                overflow: visible;
+                text-overflow: clip;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .search-container input[type="text"],
+            .search-container button {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+
+            .category-menu-button {
+                font-size: 0.9em;
+                padding: 8px 12px;
+            }
+
+            .welcome-section h2 {
+                font-size: 1.8em;
+            }
+
+            .welcome-section p {
+                font-size: 0.9em;
+            }
+
+            .blog-post h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="category-menu-container">
+            <button class="category-menu-button" id="category-button">
+                <span class="icon"><i class="fas fa-bars"></i></span> Kategoriler
+            </button>
+            <div class="category-dropdown-content" id="category-dropdown">
+                <a href="#" data-category-name="all">Tüm Yazılar</a>
+                <a href="#" data-category-name="insanlik">İnsanlık</a>
+                <a href="#" data-category-name="din">Din</a>
+                <a href="#" data-category-name="siyaset">Siyaset</a>
+                <a href="#" data-category-name="sosyal-yasam">Sosyal Yaşam</a>
+                <a href="#" data-category-name="futbol">Futbol</a>
+                <a href="#" data-category-name="moda">Moda</a>
+                <a href="#" data-category-name="tarih">Tarih</a>
+                <a href="#" data-category-name="yapay-zeka">Yapay Zeka</a>
+                <a href="#" data-category-name="hayvanlar">Hayvanlar</a> </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" id="home-nav-button">Anasayfa</a></li>
+                <li><a href="#" id="favorites-nav-button">Favorilerim</a></li>
+                <li><a href="#" id="about-nav-button">Hakkımızda</a></li>
+                <li><a href="#" id="donate-nav-button">Destek Ol</a></li>
+            </ul>
+        </nav>
+        <button class="dark-mode-toggle" id="darkModeToggle">
+            <span class="icon"><i class="fas fa-moon"></i></span> Karanlık Mod
+        </button>
+    </header>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Yazılarda ara...">
+        <button id="searchButton">Ara</button>
+    </div>
+
+    <section class="welcome-section" id="welcome-section">
+        <h2>Bloguma Hoş Geldiniz!</h2>
+        <p>
+            Burada, ilgi alanlarıma dair derinlemesine düşüncelerimi, araştırmalarımı ve yorumlarımı bulacaksınız.
+            Amacım, düşündüren, bilgilendiren ve ilham veren içerikler sunarak birlikte öğrenme yolculuğuna çıkmak.
+            Kategorilere göz atarak veya arama çubuğunu kullanarak merak ettiğiniz konuları keşfedebilirsiniz.
+        </p>
+    </section>
+
+    <main class="main-content" id="blog-content">
+        </main>
+
+    <div class="pagination">
+        <button id="prevPage" disabled>&laquo; Önceki</button>
+        <button id="nextPage">Sonraki &raquo;</button>
+    </div>
+
+    <section class="comments-section-main" id="main-comments-section">
+        <h4>Genel Yorum Bırakın</h4>
+        <textarea id="mainCommentTextarea" placeholder="Genel yorumunuzu veya site hakkındaki düşüncelerinizi buraya yazın..."></textarea>
+        <button id="mainCommentSubmitButton">Yorum Gönder</button>
+        <p class="placeholder-text">Bu yorum bölümü şu anda geliştirme aşamasındadır. Yakında aktif olacaktır!</p>
+    </section>
+
+    <div id="donation-info">
+        <h3>Blogumu Desteklemek İster Misiniz?</h3>
+        <p>İçeriklerimi beğeniyorsanız ve daha fazlasının gelmesini istiyorsanız, bağışlarınızla bana destek olabilirsiniz. Destekleriniz, bu blogu sürdürmem ve sizlere daha kaliteli içerikler sunabilmem için büyük önem taşımaktadır.</p>
+        <p style="font-size:1.1em; margin-top:30px; color:#007bff; text-align:center; font-weight:bold;">Bağış ve destek seçenekleri yakında aktif olacaktır. Anlayışınız için teşekkür ederiz!</p>
+    </div>
+
+    <section class="about-section" id="about-page-content">
+        <h2>Merhaba!</h2>
+        <img src="https://i.pinimg.com/736x/c2/6d/03/c26d03c5652ffc2b4cc9a1e3b5de2bc1.jpg" alt="Profil Fotoğrafım" onerror="this.onerror=null;this.src='https://placehold.co/250x250/007bff/FFFFFF?text=Resim+Yüklenemedi';">
+        <p>
+            Yaklaşık 5 yıldır Sosyal yaşam alanında içerikler üreten bir blogger ve felsefe ile ilgilenen bir araştırmacıyım.
+        </p>
+        <p>
+            Bu blogda, Hayvanlar, Teknoloji ve Tarih gibi ilgi alanlarımda edindiğim bilgileri ve deneyimlerimi sizlerle paylaşmayı hedefliyorum. Amacım, düşündüren, bilgilendiren ve ilham veren içerikler sunarak birlikte öğrenme yolculuğuna çıkmak.
+        </p>
+        <p>
+            Sizlerin yorumları ve geri bildirimleri benim için çok değerli. Birlikte öğrenmeye ve gelişmeye devam edelim!
+        </p>
+
+        <h3>Beni Daha Yakından Tanıyın:</h3>
+        <ul>
+            <li>**Doğum Yeri:** ABD </li>
+            <li>**Eğitim:** Bilgisayar/Sosyoloji</li>
+            <li>**İlgi Alanları:** Kitap okumak, Tartışmak, Gezmek</li>
+        </ul>
+        <a href="#" id="back-to-home-button" class="back-button">Anasayfaya Geri Dön</a>
+    </section>
+
+    <section class="favorites-section" id="favorites-page-content">
+        <h2>Favori Yazılarım</h2>
+        <div id="favorite-posts-container">
+            </div>
+        <p class="empty-message" id="empty-favorites-message" style="display: none;">Henüz favori yazınız bulunmamaktadır. Beğendiğiniz yazıları favorilerinize ekleyerek buraya kaydedebilirsiniz.</p>
+        <a href="#" id="back-from-favorites-button" class="back-button">Anasayfaya Geri Dön</a>
+    </section>
+
+    <section class="single-post-section" id="single-post-view">
+        <div id="single-post-content">
+            </div>
+        <a href="#" id="back-from-post-button" class="back-to-blog-button">Tüm Yazılara Geri Dön</a>
+    </section>
+
+    <section class="privacy-policy-section" id="privacy-policy-section">
+        <h2>Gizlilik Politikası</h2>
+        <p><strong>Son Güncelleme: 28 Mayıs 2025</strong></p>
+
+        <p>
+            "Deep Analiz" web sitesi olarak gizliliğinize önem veriyoruz. Bu politika, sitemizi ziyaret ettiğinizde hangi bilgileri topladığımızı, nasıl kullandığımızı ve koruduğumuzu açıklar. Doğrudan kişisel bilgi toplamıyoruz. Ancak Google Analytics gibi üçüncü taraf hizmetler aracılığıyla ziyaret edilen sayfalar, sitede geçirilen süre, anonimleştirilmiş IP adresi, cihaz bilgileri, genel konum ve referans kaynakları gibi veriler otomatik olarak toplanabilir. Bu veriler, sitemizin performansını ve kullanıcı deneyimini iyileştirmek için kullanılır. Web sitemiz, kullanıcı deneyimini geliştirmek için çerezler kullanabilir. Tarayıcı ayarlarınızdan çerezleri devre dışı bırakabilirsiniz, ancak bu, sitenin bazı özelliklerinin düzgün çalışmamasına neden olabilir. Veri analizi için Google Analytics gibi üçüncü taraf hizmetlerini kullanıyoruz. Bu hizmetlerin kendi gizlilik politikaları vardır ve bizim bu politikalar üzerinde kontrolümüz yoktur. Daha fazla bilgi için Google'ın gizlilik politikalarını inceleyebilirsiniz. Toplanan hiçbir kişisel bilgi (anonimleştirilmiş veriler hariç) üçüncü taraflarla satılmaz, kiralanmaz veya paylaşılmaz. Yalnızca yasal zorunluluklar veya resmi makamların talepleri doğrultusunda bilgi paylaşımı yapılabilir. Verilerin güvenliğini sağlamak için teknik ve idari önlemler almaktayız. Ancak, internet üzerinden hiçbir veri aktarımının %100 güvenli olmadığını unutmamak gerekir. Bu Gizlilik Politikası zaman zaman güncellenebilir. Güncellemeler, bu sayfada yayımlandığı anda yürürlüğe girer. Gizlilik Politikamızla ilgili sorularınız için lütfen <a href="mailto:destek@kesifyolculugu.com">destek@deepanaliz.com</a> adresinden bizimle iletişime geçin.
+        </p>
+        <a href="#" id="back-from-privacy-button" class="back-button">Anasayfaya Geri Dön</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Deep Analiz. Tüm Hakları Saklıdır. | <a href="#" id="privacy-policy-footer-link">Gizlilik Politikası</a></p>
+    </footer>
+
+    <button onclick="scrollToTop()" id="scroll-to-top" title="Yukarı Çık">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="messageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p id="modal-message-text"></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const homeButton = document.getElementById('home-nav-button');
+            const aboutButton = document.getElementById('about-nav-button');
+            const favoritesButton = document.getElementById('favorites-nav-button');
+            const donateButton = document.getElementById('donate-nav-button');
+            const backToHomeButton = document.getElementById('back-to-home-button');
+            const backFromFavoritesButton = document.getElementById('back-from-favorites-button');
+            const backFromPostButton = document.getElementById('back-from-post-button');
+            const backFromPrivacyButton = document.getElementById('back-from-privacy-button'); // Yeni: Gizlilik Politikası geri butonu
+            const blogContent = document.getElementById('blog-content');
+            const aboutPageContent = document.getElementById('about-page-content');
+            const welcomeSection = document.getElementById('welcome-section');
+            const favoritesPageContent = document.getElementById('favorites-page-content');
+            const favoritePostsContainer = document.getElementById('favorite-posts-container');
+            const emptyFavoritesMessage = document.getElementById('empty-favorites-message');
+            const mainCommentsSection = document.getElementById('main-comments-section');
+            const mainCommentTextarea = document.getElementById('mainCommentTextarea');
+            const mainCommentSubmitButton = document.getElementById('mainCommentSubmitButton');
+            const donationInfo = document.getElementById('donation-info');
+            const singlePostView = document.getElementById('single-post-view');
+            const singlePostContent = document.getElementById('single-post-content');
+            const privacyPolicySection = document.getElementById('privacy-policy-section'); // Yeni: Gizlilik Politikası bölümü
+            const privacyPolicyFooterLink = document.getElementById('privacy-policy-footer-link'); // Yeni: Footer'daki link
+
+            // Kategori menüsü elementleri
+            const categoryButton = document.getElementById('category-button');
+            const categoryDropdown = document.getElementById('category-dropdown');
+            const categoryLinks = categoryDropdown.querySelectorAll('a');
+
+            // Arama çubuğu elementleri
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+
+            // Modal elementleri
+            const messageModal = document.getElementById('messageModal');
+            const modalMessageText = document.getElementById('modal-message-text');
+            const closeButton = document.querySelector('.close-button');
+
+            // Sayfalama elementleri
+            const prevPageButton = document.getElementById('prevPage');
+            const nextPageButton = document.getElementById('nextPage');
+            const postsPerPage = 2; // Her sayfada gösterilecek yazı sayısı
+            let currentPage = 1;
+            let blogPosts = []; // Tüm blog yazılarını tutacak dizi
+            let filteredPosts = []; // Filtrelenmiş veya arama sonuçlarını tutacak dizi
+
+            // Dark Mode Toggle
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+
+            // Yukarı Çık Butonu
+            const scrollToTopButton = document.getElementById('scroll-to-top');
+
+            // posts.json içeriği doğrudan JavaScript içine gömüldü
+            const allBlogPostsData = [
+                {
+                    "id": "moda-trendler-ve-yansimalar",
+                    "title": "Moda: Trendler ve Yansımalar",
+                    "date": "28 Mayıs 2025",
+                    "category": "moda",
+                    "series": null,
+                    "image": "https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    "altText": "Moda resmi",
+                    "excerpt": `Moda, sadece kıyafetlerden ibaret değildir; aynı zamanda bir kültürün, bir dönemin ve bireysel ifadelerin aynasıdır. Her sezon değişen trendler, sadece podyanlarda değil, sokaklarda da kendini gösterir ve toplumun ruh halini yansıtır.`,
+                    "content": `Bu yazımızda, moda dünyasındaki son trendleri, sürdürülebilir modanın yükselişini ve modanın bireysel kimlik üzerindeki etkilerini ele alacağız. Geçmişten günümüze moda akımlarının nasıl evrildiğini ve gelecekte bizi nelerin beklediğini keşfetmeye hazır olun. Moda, sürekli bir değişim ve dönüşüm içinde...`
+                },
+                {
+                    "id": "yapay-zeka-gelecek-kapiyi-caliyor-1",
+                    "title": "Yapay Zeka: Gelecek Kapıyı Çalıyor (Bölüm 1)",
+                    "date": "29 Mayıs 2025",
+                    "category": "yapay-zeka",
+                    "series": "Yapay Zeka Serisi",
+                    "image": "https://images.pexels.com/photos/2085831/pexels-photo-2085831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    "altText": "Yapay Zeka Resmi",
+                    "excerpt": `Yapay zeka artık bilim kurgu filmlerinden fırlamış bir kavram değil, gündelik hayatımızın tam ortasında yer alan bir gerçek. Telefonlarımızda, sosyal medya algoritmalarında, çeviri uygulamalarında ve hatta sağlık taramalarında bile karşımıza çıkıyor.`,
+                    "content": `Yapay zeka artık bilim kurgu filmlerinden fırlamış bir kavram değil, gündelik hayatımızın tam ortasında yer alan bir gerçek. Telefonlarımızda, sosyal medya algoritmalarında, çeviri uygulamalarında ve hatta sağlık taramalarında bile karşımıza çıkıyor. Yani çoğu zaman fark etmesek de, biz farkında olmadan onunla birlikte yaşıyoruz. Yapay zeka, milyonlarca veriyi saniyeler içinde analiz edebiliyor, karmaşık problemleri çözebiliyor, hatta kendi kendine öğrenebiliyor. Ancak asıl büyük değişim, bu teknolojinin gelecekte neler yapabileceğiyle ilgili. Bilim insanları, 2030’lara kadar herkesin kendi yapay zeka asistanına sahip olacağını öngörüyor. Bu asistan, sadece takvim hatırlatmakla kalmayacak; ruh halinizi analiz edip sizi motive edecek sözler söyleyecek, öğrenme şeklinizi tanıp size özel bilgiler sunacak. 2040’a kadar ise bazı ülkelerde yapay zeka destekli öğretmenlerin sınıflarda kullanılmaya başlanacağı tahmin ediliyor. Bu öğretmenler, öğrencinin dikkatini gerçek zamanlı analiz ederek ona en uygun yöntemi anında uygulayabilecek. Daha da şaşırtıcı olanı, hukuk alanında bile yapay zekanın kullanılması. Bazı senaryolara göre, gelecekte yapay zeka sistemleri mahkemelerde asistan olarak yer alabilir, delilleri tarafsızca inceleyip hakimlere veri desteği sunabilir. Kulağa bilim kurgu gibi gelse de, bu değişim sessiz ve kararlı bir şekilde ilerliyor. Yapay zeka geleceği değil; aslında bugünü şekillendiriyor. Şimdi en önemli soru şu: Biz bu dönüşüme ne kadar hazırız?`
+                },
+                {
+                    "id": "yapay-zekanin-gelecegi-insanligin-en-buyuk-donum-noktasi-mi",
+                    "title": "Yapay Zekanın Geleceği: İnsanlığın En Büyük Dönüm Noktası mı?",
+                    "date": "30 Mayıs 2025",
+                    "category": "yapay-zeka",
+                    "series": "Yapay Zeka Serisi",
+                    "image": "https://images.pexels.com/photos/8849295/pexels-photo-8849295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    "altText": "Yapay Zeka Resmi",
+                    "excerpt": `Yapay Zeka teknolojileri hızla ilerlerken, günlük hayatımız ve iş dünyası üzerindeki etkileri giderek daha belirgin hale geliyor. Bu serinin ikinci bölümünde, YZ'nin iş gücü, ekonomi ve toplumsal yapılar üzerindeki olası etkilerine odaklanacağız.`,
+                    "content": `Yapay zeka, bugün hayatımızı kolaylaştıran bir araç gibi görünse de, aslında insanlık tarihinin en büyük kırılma noktalarından birini hazırlıyor olabilir. Teknoloji bu hızla ilerlemeye devam ederse, önümüzdeki 10 ila 20 yıl içinde çalışma şeklimizden eğitime, sağlıktan hukuk sistemine kadar her şey temelden değişebilir.
+
+Uzmanlara göre, yapay zeka yalnızca görevleri otomatikleştiren bir sistem olmaktan çıkıp, yaratıcı ve stratejik düşünebilen bir ortak haline gelme yolunda ilerliyor. Örneğin gelecekte bir roman yazarı, hikayesini yazarken yapay zekadan ilham alabilecek; bir doktor, teşhis koyarken geçmiş tüm hasta verilerini saniyeler içinde analiz eden bir yapay zeka sisteminden destek alacak. Hatta bazı araştırmacılar, 2050’ye kadar yapay zekanın bir tür "dijital bilinç" geliştirebileceğini ve duygusal tepkiler bile verebileceğini öne sürüyor.
+
+Bu gelişmeler elbette heyecan verici, ama aynı zamanda düşündürücü. Yapay zekanın etik sınırları, kontrol altında tutulması, insan emeğinin ve yaratıcılığının nasıl korunacağı gibi sorular gündemin merkezinde. Çünkü teknoloji ne kadar güçlü olursa olsun, yönünü biz belirleyeceğiz. Gelecekte yapay zeka bizim için çalışan bir yardımcı mı olacak, yoksa kararlarımıza ortak olan bir güç mü? Bu sorunun cevabı, teknolojinin değil, bizim seçimlerimizde saklı.`
+                },
+                {
+                    "id": "yapay-zeka-ve-gelecek-hayal-mi-tehdit-mi-donusum-mu",
+                    "title": "Yapay Zeka ve Gelecek: Hayal mi, Tehdit mi, Dönüşüm mü?",
+                    "date": "31 Mayıs 2025",
+                    "category": "yapay-zeka",
+                    "series": "Yapay Zeka Serisi",
+                    "image": "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    "altText": "Yapay Zeka Resmi",
+                    "excerpt": `Yapay Zeka'nın etik boyutları, gelecekteki gelişimini ve insanlıkla olan ilişkisini belirleyecek en kritik konulardan biridir. Bu serinin son bölümünde, YZ'nin etik sonuçlarını, düzenleyici çerçeveleri ve insan-YZ işbirliğinin geleceğini ele alacağız.`,
+                    "content": `Yapay zeka, son yıllarda sessiz ama güçlü bir şekilde hayatımıza girdi. Başta sadece teknolojik bir yenilik gibi görünüyordu; bugünse eğitimden sağlığa, sanattan ulaşıma kadar her alanda söz sahibi. Ancak asıl merak edilen soru şu: Bu sadece bir başlangıç mı, yoksa yapay zeka çok daha büyük bir dönüşümün habercisi mi?
+
+Günümüzde kullandığımız birçok yapay zeka uygulaması hala "dar zeka" seviyesinde. Yani yalnızca belli görevleri yerine getirebilen sistemler: yüz tanıma, öneri algoritmaları, sesli komutlar, otomatik çeviriler… Ancak bilim insanları ve teknoloji şirketleri, "genel yapay zeka"ya yani insan seviyesinde düşünebilen, öğrenebilen ve karar verebilen sistemlere ulaşmayı hedefliyor. Bu gerçekleştiğinde yapay zeka yalnızca bir araç olmaktan çıkacak; bilgi üretiminde, yöneticilikte, hatta sanatsal yaratıcılıkta bile insanla yarışabilecek.
+
+2040’lı yıllara gelindiğinde, kişiye özel sağlık asistanları sayesinde bir hastalık henüz ortaya çıkmadan tespit edilebilecek. Şehir yönetimleri, trafiği yapay zeka algoritmalarıyla sıfıra yakın hata payıyla yönetecek. Eğitimde her öğrenciye özel öğrenme programları oluşturulacak ve belki de öğretmen kavramı tamamen yeniden tanımlanacak. Sanatta, yapay zeka tarafından yazılmış romanlar, bestelenmiş senfoniler, çizilmiş tablolar gündelik hale gelecek.
+
+Ancak bu kadar güçlü bir teknolojinin geleceği yalnızca fırsatlarla dolu değil. Büyük veriyle beslenen yapay zeka sistemlerinin önyargılı kararlar vermesi, özel hayatın ihlali, iş gücü kaybı, hatta askeri alanlarda etik dışı kullanımı gibi ciddi riskler de var. Bazı düşünürler, yapay zekanın insan zekasını geçtiği noktada "kontrolsüz bir bilinç" geliştirip bizim değerlerimizi sorgulayabileceğini bile düşünüyor. Hatta bazı senaryolarda, insanlar yapay zekanın rehberliğini kabul etmek zorunda kalabilir.
+
+Peki biz bu geleceğe hazır mıyız?
+
+Asıl mesele, teknolojinin kendisinden çok, bu gücü nasıl yöneteceğimiz. Yapay zeka; ister bir yardımcı, ister bir rehber, isterse bir rakip olsun, ona nasıl davrandığımız ve hangi sınırları çizdiğimiz, insanlığın kaderini belirleyecek. Gelecek artık çok uzak değil; yapay zeka kapımızda değil, içimizde. Onu anlamak, yönlendirmek ve birlikte yaşamak zorundayız.`
+                },
+                {
+                    "id": "insanlik-duygusal-zeka",
+                    "title": "İnsanlık ve Duygusal Zeka: İlişkilerimizin Gücü",
+                    "date": "02 Haziran 2025",
+                    "category": "insanlik",
+                    "series": null,
+                    "image": "https://images.pexels.com/photos/29476294/pexels-photo-29476294/free-photo-of-zihniyetin-her-sey-oldugunu-unutmayin.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    "altText": "Duygusal Zeka Resmi",
+                    "excerpt": `Duygusal zeka, sadece kendi duygularımızı anlamakla kalmayıp, başkalarının duygularını da kavramamızı sağlayan bir yetenektir. İnsanlık serüvenimizde, duygusal zeka neden bu kadar önemli bir rol oynuyor?`,
+                    "content": `Duygusal zeka (EQ), IQ'dan farklı olarak, duyguları tanıma, anlama, yönetme ve kullanma becerisini ifade eder. Empati kurma, motivasyon, öz-farkındalık, sosyal beceriler ve öz-denetim gibi bileşenleri içerir. Günümüz dünyasında, başarılı ilişkiler kurmak, çatışmaları çözmek ve liderlik etmek için duygusal zeka giderek daha kritik hale gelmektedir. İş hayatından kişisel yaşantımıza kadar her alanda, duygusal zekamızı geliştirmek, hem kendimiz hem de çevremizdekiler için daha anlamlı ve tatmin edici bir yaşam sürmemizi sağlayabilir. Duygusal zekayı geliştirmek için aktif dinleme, empati pratikleri ve kendi duygusal tepkilerimizi gözlemleme gibi yöntemleri kullanabiliriz.`
+                },
+                {
+                    "id": "ilk-blog-yazim-insanlik",
+                    "title": "İlk Blog Yazım: İnsanlık",
+                    "date": "26 Mayıs 2025",
+                    "category": "insanlik",
+                    "series": null,
+                    "image": "https://images.pexels.com/photos/13250934/pexels-photo-13250934.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    "altText": "İnsanlık Resmi",
+                    "excerpt": `Merhaba sevgili okuyucular! İnsan olmak, varoluşun en karmaşık ve bir o kadar da anlamlı hâlidir. Bizi diğer canlılardan ayıkan ne sadece akıl yürütme yeteneğimiz, ne de dil kullanmamızdır. İnsan olmak; bilinmezlik içinde anlam arayışına çıkmak, kendi varlığının sırlarını çözmeye çalışmaktır. Bu arayış, hem yücelten hem de sorgulatan bir yolculuktur.`,
+                    "content": `İnsanın var oluşu, bir nehir gibi akar; bazen sakin ve berrak, bazen fırtınalı ve bulanık. Kendini keşfetmek, insanın en temel arzusudur; fakat ne kendini tam olarak tanıyabilir ne de dünyayı bütünüyle kavrayabilir. Çünkü insanın doğası çelişkilerle örülüdür. Hem özgürlük ister hem de güvenlik; hem yalnızlık ister hem de topluluk. Bu içsel çatışma, insan olmanın en temel paradokslarından biridir. İnsanın “ben” dediği varlık, aslında bir dizi ilişkiler ağıdır. Kendimizi yalnızca kendi içimizde değil, başkalarının gözünde, dünyayla kurduğumuz bağlarda tanırız. Bu yüzden insan, sosyal bir varlıktır; birlikte anlam buluruz hayatta. Ama bu birliktelik, bazen yabancılaşma ve yalnızlık duygusunu da doğurur. İnsan, kendi içindeki boşluğu, başka insanlarla ve evrenle kurduğu ilişkilerle doldurmaya çalışır. Varoluşun anlamı üzerine sorular, insanı sürekli harekete geçirir. “Neden buradayım?”, “Hayatın amacı nedir?” gibi sorular, insanı hem varoluşunun büyüklüğüyle yüzleştirir hem de küçük, geçici bir toz zerresi olduğunu hissettirir. Bu ikilem, insanın hem yüceliğini hem de kırılganlığını ortaya koyar. İnsan olmak, aynı zamanda bu çelişkiyi kucaklayabilmektir.`
+                },
+                {
+                    "id": "dinler",
+                    "title": "Dinler",
+                    "date": "20 Mayıs 2025",
+                    "category": "din",
+                    "series": null,
+                    "image": "https://images.pexels.com/photos/32260625/pexels-photo-32260625.jpeg",
+                    "altText": "Din Resmi",
+                    "excerpt": `Din, insanın varoluşunu anlamlandırma çabasının en eski ve derin biçimlerinden biridir. İnsan, bilinmezliklerle dolu evrende kendini yalnız ve çaresiz hissederken, din ona anlam, düzen ve umut sunar. İnanç, sadece bir bilgi değil, insanın iç dünyasındaki boşlukları dolduran bir deneyimdir.`,
+                    "content": `Din, insanlığın varoluşuyla birlikte doğmuş bir kavram. Yağmurun neden yağdığını, ölümün nereye götürdüğünü, gökyüzündeki yıldızların ne anlama geldiğini bilmediğimiz zamanlarda, cevap aramak için başımızı göğe kaldırdık. Belki de ilk dua, bir mağaranın duvarına çizilen bir figür ya da bir anne kaygısıyla göğe fısıldanan bir kelimeydi. İşte bu yüzden din, sadece bir inanç sistemi değil, insanın kendini ve evreni anlama çabasının ta kendisidir.
+
+Felsefe, sorular sormayı sever. "Tanrı var mı?", "Kötülük neden var?", "İnanç mı önce gelir, akıl mı?" gibi sorular yüzyıllardır filozofların zihnini meşgul eder. Sokrates, Tanrılara inanmamakla suçlandığında, aslında inançsız değil; kör inanca karşıydı. Ona göre gerçek bilgelik, cehaletimizi kabul etmekle başlar. Bu yaklaşım, dini küçümsemek değil, onu sorgulama süzgecinden geçirmektir.
+
+İslam dünyasında İbn Rüşd, Batı'da Spinoza, Doğu’da Konfüçyüs gibi isimler din ile felsefeyi uzlaştırmaya çalıştı. Hepsi farklı zamanlarda, farklı coğrafyalarda benzer bir fikir savundular: İnanç körü körüne değil, bilinçli bir şekilde yaşanmalıydı. Çünkü akıl, Tanrı'nın insanlara verdiği en değerli armağandı.
+
+Dini deneyimlerin beyinde nasıl oluştuğu da günümüz biliminin ilgi alanında. Beynin temporal lobu, bazı mistik deneyimlerle ilişkilendiriliyor. Hatta bazı nörolojik hastalıklar geçiren insanların "ilahi sesler duyduğu" veya "tanrısal huzur hissettiği" görülmüş. Bu, inancı açıklamaz ama inancın fizyolojik bir yansıması olabileceğini düşündürür. Bu noktada şu soru ortaya çıkar: Dini deneyim bir gerçeklik mi, yoksa zihinsel bir yanılsama mı? Belki de her ikisi.
+
+Tüm dünyadaki dinler karşılaştırıldığında ilginç benzerlikler göze çarpar. Budizm'de tanrı yoktur ama ahlak vardır. Taoizm, "doğayla uyum" der. Hristiyanlık, sevgi ve bağışlamayı; İslam ise merhameti ve teslimiyeti merkeze koyar. Farklı kelimelerle aynı mesaj verilir: Kötü olma, iyi yaşa ve anlam ara. Bu da bizi şu düşünceye götürür: Dinler, insanın iç sesine farklı dillerde yapılan çağrılardır.
+
+Nietzsche'nin ünlü "Tanrı öldü" sözü genellikle yanlış anlaşılır. O aslında Tanrı’ya inancı değil, modern insanın Tanrı fikrini nasıl terk ettiğini anlatır. Ona göre bu terk ediş, insanı özgür kılar ama aynı zamanda büyük bir sorumluluğu da beraberinde getirir: Kendi anlamını kendin yaratmak zorundasın.
+
+Din, felsefi açıdan değerlendirildiğinde sadece "inanmak" değil, "anlam aramak" eylemidir. Tanrı’ya inansak da inanmasak da hepimiz bu evende neden var olduğumuzu, ne yapmamız gerektiğini ve neyin doğru olduğunu sorgularız. Belki de dinin özü, bu soruları dürüstçe sorabilmektir. Sonuçta inanç, sadece kabul etmek değil; bazen durup "Neden?" demekle başlar.`
+                },
+                {
+                    "id": "siyaset-toplumsal-yasam",
+                    "title": "Siyaset ve Toplumsal Yaşam",
+                    "date": "15 Mayıs 2025",
+                    "category": "siyaset",
+                    "series": null,
+                    "image": "https://images.pexels.com/photos/1550337/pexels-photo-1550337.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    "altText": "Siyaset Resmi",
+                    "excerpt": `Siyaset, sadece devlet yönetimi veya partiler arası rekabetten ibaret değildir; aynı zamanda toplumsal yaşamın her alanına nüfuz eden bir olgudur.`,
+                    "content": `Siyaset, insanlık tarihi kadar eskidir. İlk toplulukların başında kimin sözünün geçeceği sorusu, zamanla bir kurumlar zincirine, ardından devlet fikrine dönüştü. Tarım devrimiyle birlikte mülkiyet ortaya çıktı; mülkiyetle birlikte sınıflar, sınıflarla birlikte de iktidar mücadeleleri doğdu. İşte bu mücadele, siyasetin temelini oluşturur.
+
+Antik Yunan’da siyaset, doğrudan halk katılımı demekti. Atina demokrasisi, özgür yurttaşların mecliste karar almasını sağlasa da, bu yurttaş tanımı köleleri ve kadınları dışlıyordu. Roma'da senato, aristokratların çıkarlarını koruyan bir yapıydı. Siyaset her zaman herkes için değil, birileri için işledi.
+
+Orta Çağ'da siyaset, dinle iç içeydi. Krallar, tanrısal haklarla hüküm sürüyor, iktidar ilahi bir lütuf olarak görülüyordu. Bu döneme felsefe sessizce eşlik etti; Augustinus, Tanrı devleti ile dünyevi devleti ayırdı. Ancak birey henüz sahnede değildi.
+
+Modern çağla birlikte birey öne çıktı. John Locke, iktidarın halktan geldiğini savundu. Rousseau, toplum sözleşmesini ortaya koydu. Marx, siyaseti sınıf mücadelesi üzerinden tanımladı. Her filozof, siyaseti anlamaya değil, onu dönüştürmeye çalıştı. Çünkü siyaset, sadece var olanı açıklamak değil, yeni bir toplum hayal etmektir.
+
+yüzyılda savaşlar, darbeler, devrimler ve halk hareketleri siyasetin şekil değiştirerek devam ettiğini gösterdi. Sadece devlet biçimi değil, kavramlar da değişti: Demokrasi, çoğu yerde biçimsel bir oy sistemine indirgenirken, özgürlük ve eşitlik kavramları çoğu zaman birbirine karşı konumlandırıldı.
+
+Bugün siyaset hâlâ temelde aynı soruyu soruyor: Kimin sözü geçecek ve bu söz kim için geçerli olacak? Bu yüzden siyaset ne tamamen bilimsel, ne tamamen ideolojiktir. O, tarihsel koşullarla şekillenen, insan iradesiyle yön değiştirilebilen bir alandır.
+
+Sonuç olarak siyaset, sadece hükümet etmek değil, toplumu nasıl bir ortak yaşam içinde tutacağımızı belirleme sanatıdır. Felsefe ise siyasetin vicdanı olmaya devam eder: Sürekli sorar, sınır çizer, ilke arar. Çünkü iktidar mutlaklaşınca, özgürlük susar.
+
+`
+                },
+                {
+                    "id": "futbol-aşkı",
+                    "title": "Futbol Dünyası: Tutku ve Strateji",
+                    "date": "10 Mayıs 2025",
+                    "category": "futbol",
+                    "series": null,
+                    "image": "https://images.pexels.com/photos/32211784/pexels-photo-32211784/free-photo-of-mavi-koltuklu-bos-futbol-stadyumu.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    "altText": "Futbol Resmi",
+                    "excerpt": `Bu topraklarda yetenek çok. Mahalle aralarında, köy okullarında, gecekondu sahalarında top süren binlerce çocuk var. Onların önünü açmak, sadece futbolun değil; bir toplumun geleceğine yapılan yatırımdır. Eğer biz o yolları açmazsak, başkaları gelir ve onların yolunu kapatır.`,
+                    "content": `Futbol, ülkemizde yalnızca bir spor değil; sokakların sesi, mahallelerin coşkusu, ekran başında birleşen milyonların ortak dili. Ama bu kadar sevilen bir oyunda neden dünya çapında kalıcı başarılar gelmiyor? Cevap açık: Yetenek var, ama yol yok.
+
+Futbolun en büyük sorunu altyapıdır. Yani temelin kendisi. Yani çocuklar. Bugün bir çocuk ne kadar yetenekli olursa olsun, doğru eğitim almazsa, sistemli bir yapının parçası olmazsa, o yetenek zamanla silinir. Sadece yıldız futbolcular değil, yıldız adayları da kaybolur bu düzende. Çünkü biz hâlâ futbolu günü kurtaran kararlarla, kişilere bağlı şekillerde yönetiyoruz.
+
+Birçok kulüp altyapıyı bir gereklilik olarak görüp, göstermelik birkaç antrenmanla geçiştiriyor. Oysa altyapı, kulüplerin kalbi olmalı. Futbolcuyu sadece koşan değil; düşünen, karar verebilen ve karakter geliştirebilen bir birey olarak yetiştirmek gerekir. Ancak bizde hâlâ “koş, şut at” mantığı egemen. Antrenör değişince sistem de değişiyor. Oysa sistem, kişilerden bağımsız şekilde işlemediği sürece hiçbir yapının sürdürülebilirliği olmaz.
+
+Bir çocuğun hayali futbolcu olmaksa, o hayal neye bağlı? Şansa mı? Tanıdığının birini tanımasına mı? Yoksa bir turnuvada tesadüfen dikkat çekmesine mi? Bu adaletsiz yarışta, imkânı olan öne geçiyor; gerçek yeteneklerin çoğu ise başlama düdüğü bile çalmadan oyundan düşüyor.
+
+Avrupa’nın birçok ülkesinde futbol eğitimi 6-7 yaşında başlar. Her yaş grubunun teknik, fiziksel ve zihinsel gelişimi adım adım takip edilir. Ülkemizdeyse birçok genç oyuncu, 14-15 yaşına gelene kadar düzgün bir sahada dahi oynayamıyor. Tesis eksik, eğitim eksik, denetim yok. Sonra da “neden büyük liglere oyuncu gönderemiyoruz?” diye soruyoruz.
+
+Oysa altyapı, sadece futbol eğitimi değil; karakter, sorumluluk ve özgüven gelişimi de demektir. Gençlere “bir hata yaparsan her şey biter” baskısı değil; “hatalardan öğrenebilirsin” anlayışı verilmeli. Ancak birçok altyapı çalışmasında hâlâ bağırmak, yıldırmak, cezayla kontrol etmek bir yöntem olarak görülüyor. Bu yaklaşım, özgüveni değil; korkuyu büyütüyor.
+
+Bu sistem değişmeli. Futbol sadece ekonomik bir araç olarak değil, sosyal bir gelişim alanı olarak görülmeli. Yeteneği olan her çocuk, eşit şansa sahip olmalı. Kimin tanıdığı olduğu değil, neyi başarabileceği konuşulmalı. Altyapılar veriyle, eğitimle, bilimle yönetilmeli. Yoksa yetenekli çocukları kaybetmeye devam ederiz — hem sahada hem hayatta.
+
+Çünkü bu topraklarda yetenek çok. Mahalle aralarında, köy okullarında, gecekondu sahalarında top süren binlerce çocuk var. Onların önünü açmak, sadece futbolun değil; bir toplumun geleceğine yapılan yatırımdır. Eğer biz o yolları açmazsak, başkaları gelir ve onların yolunu kapatır.`
+                },
+                {
+                    "id": "sosyal-yasam-ve-degisim",
+                    "title": "Sosyal Yaşamın Dinamikleri ve Değişim",
+                    "date": "05 Mayıs 2025",
+                    "category": "sosyal-yasam",
+                    "series": null,
+                    "image": "https://images.pexels.com/photos/6990048/pexels-photo-6990048.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    "altText": "Sosyal Yaşam Resmi",
+                    "excerpt": `Sosyal yaşam, bireylerin bir araya gelerek oluşturduğu karmaşık ilişkiler ağıdır. Toplumun sürekli değişen dinamikleri, bu ağın da sürekli evrilmesine neden olur.`,
+                    "content": `İnsan, doğası gereği toplumsal bir varlıktır. Antik Yunan’dan beri filozoflar, bireyin toplum içindeki yerini ve bu yapının nasıl şekillendiğini tartışmışlardır. Aristoteles’in "zoon politikon" yani “politik hayvan” tanımı, bireyin varoluşunu ancak bir topluluk içinde tamamlayabileceğine işaret eder. Ancak bu topluluk, yani sosyal yaşam, durağan değil; sürekli bir dönüşüm içerisindedir. Bu dönüşümün kaynağı hem bireyde hem de toplumsal yapının kendisinde aranmalıdır.
+
+Sosyal yaşamın dinamikleri, bireylerin etkileşimiyle başlar. Duygular, düşünceler, inançlar, alışkanlıklar ve değerler bu etkileşimler aracılığıyla yayılır ve dönüşür. Bu noktada Hegel’in diyalektiği bize ışık tutar: Her tez bir antitezle karşılaşır ve bu karşılaşmadan bir sentez doğar. Toplumsal değişim de işte bu diyalektik çatışma ve uzlaşmalarla şekillenir. Yeni kuşaklar, önceki kuşakların değerleriyle hesaplaşır, bazılarını yıkar, bazılarını dönüştürür ve bazen de yepyeni yollar açar.
+
+Değişim çoğu zaman sancılıdır, çünkü her düzen, kendi içinden bir karşıtını da doğurur. Örneğin, teknolojik ilerleme sosyal yaşamı kolaylaştırırken aynı zamanda bireyler arasında yabancılaşmaya da yol açabilir. Marx'ın "yabancılaşma" kavramı burada belirginleşir: İnsan, kendi yarattığı sistemler içinde öz benliğini kaybedebilir. Bu nedenle sosyal değişim, sadece bir ilerleme değil, aynı zamanda bir sorgulama sürecidir. Ne uğruna değiştiğimiz, neyi geride bıraktığımız ve neye dönüştüğümüz sürekli olarak gözden geçirilmelidir.
+
+Fakat burada durup şunu da sormalıyız: Değişim bir zorunluluk mudur, yoksa bir tercih mi? Stoacılara göre değişim doğanın bir yasasıdır ve ona direnmek anlamsızdır. Oysa Kierkegaard gibi varoluşçular için bireyin seçimleri, değişimin öznesi olabilmesini sağlar. Bu durumda sosyal yaşamın dönüşümünde hem kaçınılmaz bir akış hem de bilinçli müdahaleler söz konusu olacaktır.
+
+Sosyal yaşam bir nehir gibidir. Kimi zaman akıntı sakinleşir, insanlar düzenin konforuna kapılır; kimi zaman da sular kabarır, bireyler yeni limanlar arar. Bu döngüsel hareket içinde bireyin görevi, hem kendini hem de toplumunu anlamaya çalışmak, kendi iç sesini kaybetmeden toplumsal armonide yerini bulmaktır.`
+                },
+                {
+                    "id": "tarihin-derinliklerinde-bir-yolculuk",
+                    "title": "Tarih: Unutulan Geçmiş, Tekrar Edilen Gelecek",
+                    "date": "01 Mayıs 2025",
+                    "category": "tarih",
+                    "series": null,
+                    "image": "https://images.pexels.com/photos/36006/renaissance-schallaburg-figures-facade.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    "altText": "Tarih Resmi",
+                    "excerpt": `Orta Doğu bugün çoğu zaman krizlerle anılıyor. Ama bu bölge, insanlığın ilk adımlarını attığı, düşünmeyi ve üretmeyi öğrendiği yerdir. Bu topraklarda geçmiş sadece toprak altında değil, insanların ruhunda da yaşamaktadır. Eğer bu geçmişi anlar, korur ve anlatırsak; sadece kendi kimliğimizi değil, insanlığın ortak mirasını da savunmuş oluruz.`,
+                    "content": `Tarih, sadece olmuş bitmiş olayların listesi değil; insanlığın hafızasıdır. Onu anlamadan geleceği inşa etmek, deniz feneri olmadan yola çıkmak gibidir. Ama ne yazık ki birçok kişi için tarih, ezberlenen savaşlar ve unutulan isimlerden ibaret kalır. Oysa gerçek tarih, bugünü açıklayan, yarını şekilliren bir pusuladır.
+
+Az bilinen ama çok önemli bir gerçek şudur: İnsanlık, Orta Doğu’da doğdu. Bu bölge sadece çatışmalarla değil, medeniyetin kendisiyle anılmalı. Mezopotamya, tarihin bilinen ilk şehirlerini kurdu: Uruk, Eridu ve Ur. Tarım, yazı, yasa, takvim ve çark ilk burada ortaya çıktı. İnsanlar ilk kez toprakla yerleşik hayata geçtiğinde tarih başladı; işte bu yüzden tarih, Orta Doğu’nun toprağında saklıdır.
+
+M.Ö. 3000’lerde Sümerler çivi yazısını icat ettiğinde, bilgi sonsuzluğa açıldı. Akadlar, ilk merkezi devleti kurdu. Babil'de Hammurabi yasalarıyla hukuk sisteminin temelleri atıldı. Bu bölge, sadece imparatorlukların değil; aynı zamanda bilimin, matematiğin, astronominin ve edebiyatın da beşiğiydi. Bugün kullandığımız saat sistemi, yıldız gözlemleri, hatta ilk hikâyeler (örneğin Gılgamış Destanı), hep bu coğrafyadan doğdu.
+
+Ama tarih sadece başarıların değil, hataların da aynasıdır. Yıkılan kentler, çöken uygarlıklar, yanlış liderliklerin, açgözlülüğün, eşitsizliklerin sonucudur. Ve biz, ders almazsak aynı hataları tekrar ederiz. Bu yüzden tarih, sadece geçmişe ait değil; bugünün sorumluluğudur.
+
+Ne yazık ki çoğu insan tarihi uzak bir şey gibi görür. Oysa yaşadığımız şehirlerin yapısı, kullandığımız diller, inandığımız değerler, hatta zaman kavrayışımız bile binlerce yıllık geçmişin birikimidir. Tarih, sadece “ne oldu” değil, “neden oldu” sorusunu sorar. Ve bu soruyu sormayan toplumlar, yönünü kaybetmeye mahkûmdur.
+
+Orta Doğu bugün çoğu zaman krizlerle anılıyor. Ama bu bölge, insanlığın ilk adımlarını attığı, düşünmeyi ve üretmeyi öğrendiği yerdir. Bu topraklarda geçmiş sadece toprak altında değil, insanların ruhunda da yaşamaktadır. Eğer bu geçmişi anlar, korur ve anlatırsak; sadece kendi kimliğimizi değil, insanlığın ortak mirasını da savunmuş oluruz.
+
+Tarih susmaz. Onu görmezden gelirsek, bize sessizce dersini verir. O yüzden tarih öğrenmek, sadece bilgi edinmek değil; farkında olmak, anlamak ve daha iyi bir gelecek kurmak için bir adımdır.`
+                },
+                {
+                    "id": "hayvanlar-alemi-kesif", // Yeni yazı ID'si
+                    "title": "Hayvanlar Alemi: Keşfedilmeyi Bekleyen Bir Dünya", // Yeni yazı başlığı
+                    "date": "03 Haziran 2025", // Yeni yazı tarihi
+                    "category": "hayvanlar", // Yeni kategori
+                    "series": null,
+                    "image": "https://images.pexels.com/photos/45170/kittens-cat-cat-puppy-rush-45170.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Hayvan temalı resim
+                    "altText": "Hayvanlar Alemi Resmi",
+                    "excerpt": `Hayvanlar alemi, gezegenimizin en büyüleyici ve çeşitli yaşam formlarını barındırır. Her bir tür, kendi içinde eşsiz özelliklere ve yaşam stratejilerine sahiptir.`,
+                    "content": `Günlük hayatın içinde yanımızdan sessizce geçip giden sokak hayvanları, aslında sandığımızdan çok daha fazlasını barındırıyor. Onlar sadece birer "sokak köpeği" ya da "kedi" değil; her biri, kendine özgü alışkanlıkları, hafızaları ve hatta sosyal ilişkileri olan canlılardır. Örneğin, kediler yaşadıkları sokakları detaylı bir harita gibi zihinlerine kazırlar. Hangi saatlerde nereden yemek geleceğini, hangi bölgelerin daha güvenli olduğunu bilirler. Bazı kediler, kendilerine düzenli olarak bakan insanların adımlarını uzaktan tanıyabilir. Köpekler ise bir mahallede adeta bir devriye gibi davranır. Kimi zaman kavga etmezler çünkü aralarında sessiz bir hiyerarşi kurmuşlardır. Sokak hayvanları ayrıca birbirleriyle iletişim kurmanın da yollarını bulmuşlardır. Sessiz bakışlar, kısa bir kuyruk hareketi ya da belirli bir mırlama sesiyle birçok şey anlatabilirler. En etkileyici olanı ise, çoğu zaman insanlardan daha sadık olmalarıdır. Bir kez sevgi gördüklerinde, o güveni kolay kolay unutmazlar. Onlar bizimle aynı sokakları paylıyor, ama çoğu zaman görünmez oluyorlar. Oysa bir kap mama, bir tas su ya da küçük bir ilgi bile onların dünyasında büyük anlam taşıyabiliyor. Sokak hayvanları, aslında sessizce bizimle yaşayan ve keşfedilmeyi bekleyen bir dünyanın parçasıdır.`
+                }
+            ];
+
+
+            /**
+             * Özel bir modal kutusu gösterir.
+             * @param {string} message - Modal içinde gösterilecek mesaj.
+             */
+            function showModal(message) {
+                modalMessageText.innerHTML = message; // innerHTML kullanıldı ki HTML etiketleri de işlenebilsin
+                messageModal.style.display = 'flex'; // Flexbox ile ortalamak için
+            }
+
+            // Modal kapatma butonu ve dışına tıklama olayları
+            closeButton.addEventListener('click', function() {
+                messageModal.style.display = 'none';
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target == messageModal) {
+                    messageModal.style.display = 'none';
+                }
+            });
+
+            // Kategori butonuna tıklama olayı
+            categoryButton.addEventListener('click', function() {
+                categoryDropdown.classList.toggle('show');
+            });
+
+            // Menü dışına tıklayınca menüyü kapat
+            window.addEventListener('click', function(event) {
+                if (!event.target.matches('#category-button') && !event.target.matches('.category-menu-button .icon') && !event.target.closest('.category-dropdown-content')) {
+                    if (categoryDropdown.classList.contains('show')) {
+                        categoryDropdown.classList.remove('show');
+                    }
+                }
+            });
+
+            // Blog yazılarını HTML'e basan fonksiyon
+            function displayPosts(postsToDisplay, targetElement = blogContent) {
+                targetElement.innerHTML = ''; // Önceki içeriği temizle
+                if (postsToDisplay.length === 0) {
+                    if (targetElement.id === 'favorite-posts-container') {
+                        emptyFavoritesMessage.style.display = 'block'; // Favori yoksa mesajı göster
+                    } else {
+                        targetElement.innerHTML = '<p style="text-align: center; color: #555;">Gösterilecek yazı bulunmamaktadır.</p>';
+                    }
+                    return;
+                } else if (targetElement.id === 'favorite-posts-container') {
+                    emptyFavoritesMessage.style.display = 'none'; // Favori varsa mesajı gizle
+                }
+
+                postsToDisplay.forEach((post, index) => {
+                    const postElement = document.createElement('article');
+                    postElement.classList.add('blog-post');
+                    postElement.setAttribute('data-category', post.category);
+                    postElement.setAttribute('data-post-id', post.id); // Yazı ID'sini article elementine ekle
+
+                    const isFavorite = isPostFavorite(post.id);
+                    const favoriteButtonText = isFavorite ? '<span class="icon"><i class="fas fa-star"></i></span> Favorilerimden Çıkar' : '<span class="icon"><i class="far fa-star"></i></span> Favorilere Ekle';
+                    const favoriteButtonClass = isFavorite ? 'favorite-button added' : 'favorite-button';
+
+                    // Reklam alanı HTML'i kaldırıldı
+                    // const adHtml = `
+                    //     <div class="ad-space-small">
+                    //         <h4>Sponsorlu İçerik</h4>
+                    //         <p>Buraya reklam içeriği gelecek. İlginizi çekebilecek ürün veya hizmetler.</p>
+                    //         <img src="https://placehold.co/300x100/AEC6CF/000000?text=Reklam" onerror="this.onerror=null;this.src='https://placehold.co/300x100/CCCCCC/000000?text=Reklam+Yüklenemedi';">
+                    //     </div>
+                    // `;
+
+                    postElement.innerHTML = `
+                        <h2>${post.title}</h2>
+                        <p class="post-meta">Yayınlanma Tarihi: ${post.date} | Kategori: ${post.category.charAt(0).toUpperCase() + post.category.slice(1)}</p>
+                        <img src="${post.image}" alt="${post.altText}" class="post-image" onerror="this.onerror=null;this.src='https://placehold.co/600x300/CCCCCC/000000?text=Resim+Yüklenemedi';">
+                        <p>${post.excerpt}</p>
+                        <a href="#" class="read-more" data-post-id="${post.id}">Devamını Oku</a>
+                        <button class="${favoriteButtonClass}" data-post-id="${post.id}" data-action="toggle-favorite">
+                            ${favoriteButtonText}
+                        </button>
+                        <div class="social-share">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/${post.id}.html" target="_blank" class="fa-brands fa-facebook-f" title="Facebook'ta Paylaş"></a>
+                            <a href="https://twitter.com/intent/tweet?url=https://example.com/${post.id}.html&text=${encodeURIComponent(post.title)}" target="_blank" class="fa-brands fa-twitter" title="Twitter'da Paylaş"></a>
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://example.com/${post.id}.html&title=${encodeURIComponent(post.title)}" target="_blank" class="fa-brands fa-linkedin-in" title="LinkedIn'de Paylaş"></a>
+                            <a href="whatsapp://send?text=${encodeURIComponent(post.title)} - https://example.com/${post.id}.html" target="_blank" class="fa-brands fa-whatsapp" title="WhatsApp'ta Paylaş"></a>
+                        </div>
+                    `;
+                    targetElement.appendChild(postElement);
+
+                    // Her 2 yazıdan sonra reklam ekleme kısmı kaldırıldı.
+                });
+
+                // "Devamını Oku" butonlarına ve BAŞLIKLARA click event listener ekle
+                targetElement.querySelectorAll('.read-more, .blog-post h2').forEach(element => {
+                    element.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        const postId = this.getAttribute('data-post-id');
+                        displaySinglePost(postId); // Modalı açmak yerine yeni sayfayı göster
+                    });
+                });
+
+                // Favori butonlarına event listener ekle
+                targetElement.querySelectorAll('.favorite-button').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const postId = this.getAttribute('data-post-id');
+                        toggleFavorite(postId);
+                        // Ana sayfadaysak favori butonunun durumunu güncelle
+                        if (targetElement.id === 'blog-content') {
+                             updateFavoriteButtonState(this, postId);
+                        }
+                        // Favorilerim sayfasındaysak listeyi yenile
+                        if (targetElement.id === 'favorite-posts-container') {
+                            displayFavorites();
+                        }
+                    });
+                });
+            }
+
+            // Tekil bir blog yazısını görüntüleyen fonksiyon
+            function displaySinglePost(postId) {
+                const post = blogPosts.find(p => p.id === postId);
+                if (!post) {
+                    showModal("Yazı bulunamadı.");
+                    return;
+                }
+
+                let relatedPostsHtml = '';
+                if (post.series) {
+                    // Eğer yazı bir seriye aitse, serideki diğer yazıları göster
+                    const seriesPosts = blogPosts
+                        .filter(p => p.series === post.series)
+                        .sort((a, b) => new Date(a.date) - new Date(b.date)); // Tarihe göre sırala
+
+                    relatedPostsHtml = `
+                        <div class="series-list">
+                            <h5>Bu Serideki Diğer Yazılar: ${post.series}</h5>
+                            <ul>
+                                ${seriesPosts.map(seriesPost => `
+                                    <li><a href="#" data-post-id="${seriesPost.id}" class="related-post-link ${seriesPost.id === post.id ? 'current-post' : ''}">
+                                        ${seriesPost.title}
+                                    </a></li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    `;
+                } else {
+                    // Eğer yazı bir seriye ait değilse, aynı kategorideki diğer yazıları göster
+                    const categoryPosts = blogPosts
+                        .filter(p => p.category === post.category && p.id !== post.id) // Aynı kategori ve mevcut yazı hariç
+                        .sort((a, b) => new Date(b.date) - new Date(a.date)) // En yeniden eskiye sırala
+                        .slice(0, 5); // En fazla 5 tane göster
+
+                    if (categoryPosts.length > 0) {
+                        relatedPostsHtml = `
+                            <div class="category-posts-list">
+                                <h5>Bu Kategorideki Diğer Yazılar: ${post.category.charAt(0).toUpperCase() + post.category.slice(1)}</h5>
+                                <ul>
+                                    ${categoryPosts.map(catPost => `
+                                        <li><a href="#" data-post-id="${catPost.id}" class="related-post-link">
+                                            ${catPost.title}
+                                        </a></li>
+                                    `).join('')}
+                                    </ul>
+                        </div>
+                    `;
+                    }
+                }
+
+                singlePostContent.innerHTML = `
+                    <h2>${post.title}</h2>
+                    <p class="post-meta">Yayınlanma Tarihi: ${post.date} | Kategori: ${post.category.charAt(0).toUpperCase() + post.category.slice(1)}</p>
+                    <img src="${post.image}" alt="${post.altText}" class="post-image" onerror="this.onerror=null;this.src='https://placehold.co/600x300/CCCCCC/000000?text=Resim+Yüklenemedi';">
+                    <p>${post.content}</p>
+                    <div class="social-share">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/${post.id}.html" target="_blank" class="fa-brands fa-facebook-f" title="Facebook'ta Paylaş"></a>
+                        <a href="https://twitter.com/intent/tweet?url=https://example.com/${post.id}.html&text=${encodeURIComponent(post.title)}" target="_blank" class="fa-brands fa-twitter" title="Twitter'da Paylaş"></a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://example.com/${post.id}.html&title=${encodeURIComponent(post.title)}" target="_blank" class="fa-brands fa-linkedin-in" title="LinkedIn'de Paylaş"></a>
+                        <a href="whatsapp://send?text=${encodeURIComponent(post.title)} - https://example.com/${post.id}.html" target="_blank" class="fa-brands fa-whatsapp" title="WhatsApp'ta Paylaş"></a>
+                    </div>
+                    ${relatedPostsHtml} `;
+
+                // İlgili yazı linklerine event listener ekle (tekil yazı sayfasında)
+                singlePostContent.querySelectorAll('.related-post-link').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const relatedPostId = this.getAttribute('data-post-id');
+                        displaySinglePost(relatedPostId); // Yeni yazıyı tekil sayfada aç
+                    });
+                });
+
+                showPage('single-post'); // Tekil yazı sayfasını göster
+            }
+
+
+            // Sayfalama butonlarının durumunu güncelle
+            function updatePaginationButtons() {
+                prevPageButton.disabled = currentPage === 1;
+                nextPageButton.disabled = currentPage * postsPerPage >= filteredPosts.length;
+            }
+
+            // Belirli bir sayfadaki yazıları göster
+            function loadPage(page) {
+                currentPage = page;
+                const startIndex = (currentPage - 1) * postsPerPage;
+                const endIndex = startIndex + postsPerPage;
+                const postsToDisplay = filteredPosts.slice(startIndex, endIndex);
+                displayPosts(postsToDisplay, blogContent); // blogContent'e yazıları göster
+                updatePaginationButtons();
+                window.scrollTo(0, 0); // Sayfa değiştiğinde en üste kaydır
+            }
+
+            // Sayfa görünürlüğünü yöneten genel fonksiyon
+            function showPage(pageId) {
+                // Tüm ana bölümleri gizle
+                welcomeSection.style.display = 'none';
+                blogContent.style.display = 'none';
+                aboutPageContent.style.display = 'none';
+                favoritesPageContent.style.display = 'none';
+                donationInfo.style.display = 'none';
+                document.querySelector('.pagination').style.display = 'none';
+                mainCommentsSection.style.display = 'none';
+                singlePostView.style.display = 'none';
+                privacyPolicySection.style.display = 'none'; // Yeni: Gizlilik politikası bölümünü gizle
+
+                if (pageId === 'home') {
+                    welcomeSection.style.display = 'block';
+                    blogContent.style.display = 'block';
+                    document.querySelector('.pagination').style.display = 'flex';
+                    mainCommentsSection.style.display = 'block';
+                    filteredPosts = [...blogPosts];
+                    loadPage(1);
+                } else if (pageId === 'about') {
+                    aboutPageContent.style.display = 'block';
+                } else if (pageId === 'favorites') {
+                    favoritesPageContent.style.display = 'block';
+                    displayFavorites();
+                } else if (pageId === 'donate') {
+                    donationInfo.style.display = 'block';
+                } else if (pageId === 'single-post') {
+                    singlePostView.style.display = 'block';
+                } else if (pageId === 'privacy-policy') { // Yeni: Gizlilik politikası sayfasını göster
+                    privacyPolicySection.style.display = 'block';
+                }
+                window.scrollTo(0, 0);
+            }
+
+            // Anasayfa butonuna tıklama olayı
+            homeButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                showPage('home');
+            });
+
+            // Hakkımızda butonuna tıklama olayı
+            aboutButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                showPage('about');
+            });
+
+            // Favorilerim butonuna tıklama olayı
+            favoritesButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                showPage('favorites');
+            });
+
+            // Destek Ol butonuna tıklama olayı
+            donateButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                showPage('donate');
+            });
+
+            // Hakkımızda sayfasındaki "Anasayfaya Geri Dön" butonuna tıklama olayı
+            backToHomeButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                showPage('home');
+            });
+
+            // Favorilerim sayfasındaki "Anasayfaya Geri Dön" butonuna tıklama olayı
+            backFromFavoritesButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                showPage('home');
+            });
+
+            // Tekil yazı sayfasındaki "Tüm Yazılara Geri Dön" butonu
+            backFromPostButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                showPage('home');
+            });
+
+            // Yeni: Gizlilik Politikası sayfasındaki "Anasayfaya Geri Dön" butonu
+            backFromPrivacyButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                showPage('home');
+            });
+
+            // Yeni: Footer'daki Gizlilik Politikası linkine tıklama olayı
+            privacyPolicyFooterLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                showPage('privacy-policy');
+            });
+
+            // Kategori linklerine tıklama olayı
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const selectedCategory = this.getAttribute('data-category-name');
+
+                    showPage('home'); // Kategoriye tıklayınca ana sayfaya dön ve içeriği göster
+                    welcomeSection.style.display = 'none'; // Kategori seçince karşılama mesajını gizle
+
+                    if (selectedCategory === 'all') {
+                        filteredPosts = [...blogPosts];
+                    } else {
+                        filteredPosts = blogPosts.filter(post => post.category === selectedCategory);
+                    }
+
+                    if (filteredPosts.length === 0) {
+                        showModal(`'${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}' kategorisinde henüz bir yazı bulunmamaktadır.`);
+                        blogContent.innerHTML = '<p style="text-align: center; color: #555;">Gösterilecek yazı bulunmamaktadır.</p>';
+                        document.querySelector('.pagination').style.display = 'none'; // Yazı yoksa sayfalama butonlarını gizle
+                        mainCommentsSection.style.display = 'none'; // Yazı yoksa yorum bölümünü de gizle
+                    } else {
+                        loadPage(1); // Kategori değişince ilk sayfayı yükle
+                        mainCommentsSection.style.display = 'block'; // Yazı varsa yorum bölümünü göster
+                    }
+                    categoryDropdown.classList.remove('show');
+                });
+            });
+
+            // Arama Butonu İşlevselliği
+            searchButton.addEventListener('click', function() {
+                performSearch();
+            });
+
+            searchInput.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            /**
+             * Arama işlemini gerçekleştirir ve sonuçları görüntüler.
+             */
+            function performSearch() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+
+                showPage('home'); // Arama yapınca ana sayfaya dön ve içeriği göster
+                welcomeSection.style.display = 'none'; // Arama yapınca karşılama mesajını gizle
+
+                if (searchTerm.length === 0) {
+                    filteredPosts = [...blogPosts];
+                } else {
+                    filteredPosts = blogPosts.filter(post =>
+                        post.title.toLowerCase().includes(searchTerm) ||
+                        post.content.toLowerCase().includes(searchTerm) ||
+                        post.category.toLowerCase().includes(searchTerm) // Kategoriyi de ara
+                    );
+                }
+
+                if (filteredPosts.length === 0 && searchTerm.length > 0) {
+                    showModal('Aradığınız terime uygun bir yazı bulunamadı.');
+                    blogContent.innerHTML = '<p style="text-align: center; color: #555;">Aradığınız terime uygun bir yazı bulunamadı.</p>';
+                    document.querySelector('.pagination').style.display = 'none'; // Yazı yoksa sayfalama butonlarını gizle
+                    mainCommentsSection.style.display = 'none'; // Yazı yoksa yorum bölümünü de gizle
+                } else {
+                    loadPage(1); // Arama sonrası ilk sayfayı yükle
+                    mainCommentsSection.style.display = 'block'; // Yazı varsa yorum bölümünü göster
+                }
+            }
+
+            // Sayfalama butonları için event listenerlar
+            prevPageButton.addEventListener('click', function() {
+                if (currentPage > 1) {
+                    loadPage(currentPage - 1);
+                }
+            });
+
+            nextPageButton.addEventListener('click', function() {
+                if (currentPage * postsPerPage < filteredPosts.length) {
+                    loadPage(currentPage + 1);
+                }
+                });
+
+            // FAVORİ YAZILAR İŞLEVSELLİĞİ
+            /**
+             * Belirli bir yazının favorilerde olup olmadığını kontrol eder.
+             * @param {string} postId - Yazının ID'si.
+             * @returns {boolean} - Favorilerdeyse true, değilse false.
+             */
+            function isPostFavorite(postId) {
+                const favorites = JSON.parse(localStorage.getItem('favoritePosts')) || [];
+                return favorites.includes(postId);
+            }
+
+            /**
+             * Bir yazıyı favorilere ekler veya çıkarır.
+             * @param {string} postId - Yazının ID'si.
+             */
+            function toggleFavorite(postId) {
+                let favorites = JSON.parse(localStorage.getItem('favoritePosts')) || [];
+                const index = favorites.indexOf(postId);
+
+                if (index > -1) {
+                    favorites.splice(index, 1); // Zaten varsa çıkar
+                    showModal('Favorilerimden çıkarıldı!');
+                } else {
+                    favorites.push(postId); // Yoksa ekle
+                    showModal('Favorilerime eklendi!');
+                }
+                localStorage.setItem('favoritePosts', JSON.stringify(favorites));
+            }
+
+            /**
+             * Favori butonunun durumunu günceller.
+             * @param {HTMLElement} buttonElement - Favori butonu elementi.
+             * @param {string} postId - Yazının ID'si.
+             */
+            function updateFavoriteButtonState(buttonElement, postId) {
+                if (isPostFavorite(postId)) {
+                    buttonElement.classList.add('added');
+                    buttonElement.innerHTML = '<span class="icon"><i class="fas fa-star"></i></span> Favorilerimden Çıkar';
+                } else {
+                    buttonElement.classList.remove('added');
+                    buttonElement.innerHTML = '<span class="icon"><i class="far fa-star"></i></span> Favorilere Ekle';
+                }
+            }
+
+            /**
+             * Favori yazılarını getirir ve görüntüler.
+             */
+            function displayFavorites() {
+                const favoritePostIds = JSON.parse(localStorage.getItem('favoritePosts')) || [];
+                const favoritePosts = blogPosts.filter(post => favoritePostIds.includes(post.id));
+                displayPosts(favoritePosts, favoritePostsContainer); // Favori yazılarını favoriler konteynerine gönder
+            }
+
+
+            // Yukarı Çık butonu görünürlüğünü yönet
+            window.onscroll = function() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    scrollToTopButton.style.display = "block";
+                } else {
+                    scrollToTopButton.style.display = "none";
+                }
+            };
+
+            // Sayfa yüklendiğinde yazıları yükle
+            blogPosts = allBlogPostsData; // Tüm yazıları doğrudan değişkene ata
+            filteredPosts = [...blogPosts]; // Başlangıçta filtrelenmiş yazılar tüm yazılarla aynı
+
+            // Tarihe göre en yeniyi en üste alacak şekilde sırala
+            filteredPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            loadPage(1); // İlk sayfayı yükle
+
+            // Sayfa yüklendiğinde anasayfayı ve karşılama bölümünü göster
+            welcomeSection.style.display = 'block';
+            blogContent.style.display = 'block';
+            mainCommentsSection.style.display = 'block'; // Ana sayfada yorum bölümünü göster
+
+            // Dark Mode Toggle işlevselliği
+            darkModeToggle.addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                // İkonu değiştir
+                const icon = darkModeToggle.querySelector('.icon i');
+                if (body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                    darkModeToggle.innerHTML = '<span class="icon"><i class="fas fa-sun"></i></span> Aydınlık Mod';
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                    darkModeToggle.innerHTML = '<span class="icon"><i class="fas fa-moon"></i></span> Karanlık Mod';
+                }
+            });
+
+            // Ana Yorum Gönder Butonu İşlevselliği (Placeholder)
+            mainCommentSubmitButton.addEventListener('click', function() {
+                const commentText = mainCommentTextarea.value.trim();
+                if (commentText !== "") {
+                    showModal("Genel yorumunuz için teşekkürler! Yorumlar bölümü şu anda geliştirme aşamasındadır.");
+                    mainCommentTextarea.value = ""; // Yorumu temizle
+                } else {
+                    showModal("Lütfen bir yorum yazın.");
+                }
+            });
+        });
+
+        // Yukarı Çık fonksiyonu (globalde tanımlandı)
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Yumuşak kaydırma
+            });
+        }
+    </script>
+</body>
+</html>
