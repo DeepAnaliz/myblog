@@ -620,7 +620,25 @@
             margin-top: 20px;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
+            display: flex; /* Make footer a flex container */
+            justify-content: center; /* Center items horizontally */
+            gap: 20px; /* Add space between links */
+            flex-wrap: wrap; /* Allow links to wrap on smaller screens */
         }
+
+        /* Footer bağlantı stili */
+        footer a {
+            color: #fff; /* Beyaz renk */
+            text-decoration: none; /* Alt çizgi yok */
+            font-weight: bold; /* Kalın yazı */
+            transition: color 0.3s ease; /* Renk geçişi */
+        }
+
+        footer a:hover {
+            color: #007bff; /* Hover'da mavi */
+            text-decoration: underline; /* Hover'da alt çizgi */
+        }
+
 
         /* Bağış Bilgisi Bölümü */
         #donation-info {
@@ -1400,7 +1418,6 @@
             <ul>
                 <li><a href="#" id="home-nav-button">Anasayfa</a></li>
                 <li><a href="#" id="favorites-nav-button">Favorilerim</a></li>
-                <li><a href="#" id="about-nav-button">Hakkımızda</a></li>
                 <li><a href="#" id="donate-nav-button">Destek Ol</a></li>
             </ul>
         </nav>
@@ -1491,7 +1508,9 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Deep Analiz. Tüm Hakları Saklıdır. | <a href="#" id="privacy-policy-footer-link">Gizlilik Politikası</a></p>
+        <p>&copy; 2025 Deep Analiz. Tüm Hakları Saklıdır. |
+        <a href="#" id="privacy-policy-footer-link">Gizlilik Politikası</a> |
+        <a href="#" id="about-footer-link">Hakkımızda</a></p>
     </footer>
 
     <button onclick="scrollToTop()" id="scroll-to-top" title="Yukarı Çık">
@@ -1508,13 +1527,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const homeButton = document.getElementById('home-nav-button');
-            const aboutButton = document.getElementById('about-nav-button');
+            // const aboutButton = document.getElementById('about-nav-button'); // Hakkımızda butonu header'dan kaldırıldı
             const favoritesButton = document.getElementById('favorites-nav-button');
             const donateButton = document.getElementById('donate-nav-button');
             const backToHomeButton = document.getElementById('back-to-home-button');
             const backFromFavoritesButton = document.getElementById('back-from-favorites-button');
             const backFromPostButton = document.getElementById('back-from-post-button');
-            const backFromPrivacyButton = document.getElementById('back-from-privacy-button'); // Yeni: Gizlilik Politikası geri butonu
+            const backFromPrivacyButton = document.getElementById('back-from-privacy-button');
             const blogContent = document.getElementById('blog-content');
             const aboutPageContent = document.getElementById('about-page-content');
             const welcomeSection = document.getElementById('welcome-section');
@@ -1527,8 +1546,9 @@
             const donationInfo = document.getElementById('donation-info');
             const singlePostView = document.getElementById('single-post-view');
             const singlePostContent = document.getElementById('single-post-content');
-            const privacyPolicySection = document.getElementById('privacy-policy-section'); // Yeni: Gizlilik Politikası bölümü
-            const privacyPolicyFooterLink = document.getElementById('privacy-policy-footer-link'); // Yeni: Footer'daki link
+            const privacyPolicySection = document.getElementById('privacy-policy-section');
+            const privacyPolicyFooterLink = document.getElementById('privacy-policy-footer-link');
+            const aboutFooterLink = document.getElementById('about-footer-link'); // Yeni: Footer'daki Hakkımızda linki
 
             // Kategori menüsü elementleri
             const categoryButton = document.getElementById('category-button');
@@ -1581,7 +1601,7 @@
                     "image": "https://images.pexels.com/photos/2085831/pexels-photo-2085831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                     "altText": "Yapay Zeka Resmi",
                     "excerpt": `Yapay zeka artık bilim kurgu filmlerinden fırlamış bir kavram değil, gündelik hayatımızın tam ortasında yer alan bir gerçek. Telefonlarımızda, sosyal medya algoritmalarında, çeviri uygulamalarında ve hatta sağlık taramalarında bile karşımıza çıkıyor.`,
-                    "content": `Yapay zeka artık bilim kurgu filmlerinden fırlamış bir kavram değil, gündelik hayatımızın tam ortasında yer alan bir gerçek. Telefonlarımızda, sosyal medya algoritmalarında, çeviri uygulamalarında ve hatta sağlık taramalarında bile karşımıza çıkıyor. Yani çoğu zaman fark etmesek de, biz farkında olmadan onunla birlikte yaşıyoruz. Yapay zeka, milyonlarca veriyi saniyeler içinde analiz edebiliyor, karmaşık problemleri çözebiliyor, hatta kendi kendine öğrenebiliyor. Ancak asıl büyük değişim, bu teknolojinin gelecekte neler yapabileceğiyle ilgili. Bilim insanları, 2030’lara kadar herkesin kendi yapay zeka asistanına sahip olacağını öngörüyor. Bu asistan, sadece takvim hatırlatmakla kalmayacak; ruh halinizi analiz edip sizi motive edecek sözler söyleyecek, öğrenme şeklinizi tanıp size özel bilgiler sunacak. 2040’a kadar ise bazı ülkelerde yapay zeka destekli öğretmenlerin sınıflarda kullanılmaya başlanacağı tahmin ediliyor. Bu öğretmenler, öğrencinin dikkatini gerçek zamanlı analiz ederek ona en uygun yöntemi anında uygulayabilecek. Daha da şaşırtıcı olanı, hukuk alanında bile yapay zekanın kullanılması. Bazı senaryolara göre, gelecekte yapay zeka sistemleri mahkemelerde asistan olarak yer alabilir, delilleri tarafsızca inceleyip hakimlere veri desteği sunabilir. Kulağa bilim kurgu gibi gelse de, bu değişim sessiz ve kararlı bir şekilde ilerliyor. Yapay zeka geleceği değil; aslında bugünü şekillendiriyor. Şimdi en önemli soru şu: Biz bu dönüşüme ne kadar hazırız?`
+                    "content": `Yapay zeka artık bilim kurgu filmlerinden fırlamış bir kavram değil, gündelik hayatımızın tam ortasında yer alan bir gerçek. Telefonlarımızda, sosyal medya algoritmalarında, çeviri uygulamalarında ve hatta sağlık taramalarında bile karşımıza çıkıyor. Yani çoğu zaman fark etmesek de, biz farkında olmadan onunla birlikte yaşıyoruz. Yapay zeka, milyonlarca veriyi saniyeler içinde analiz edebiliyor, karmaşık problemleri çözebiliyor, hatta kendi kendine öğrenebiliyor. Ancak asıl büyük değişim, bu teknolojinin gelecekte neler yapabileceğiyle ilgili. Bilim insanları, 2030’lara kadar herkesin kendi yapay zeka asistanına sahip olacağını öngörüyor. Bu asistan, sadece takvim hatırlatmakla kalmayacak; ruh halinizi analiz edip sizi motive edecek sözler söyleyecek, öğrenme şeklinizi tanıyıp size özel bilgiler sunacak. 2040’a kadar ise bazı ülkelerde yapay zeka destekli öğretmenlerin sınıflarda kullanılmaya başlanacağı tahmin ediliyor. Bu öğretmenler, öğrencinin dikkatini gerçek zamanlı analiz ederek ona en uygun yöntemi anında uygulayabilecek. Daha da şaşırtıcı olanı, hukuk alanında bile yapay zekanın kullanılması. Bazı senaryolara göre, gelecekte yapay zeka sistemleri mahkemelerde asistan olarak yer alabilir, delilleri tarafsızca inceleyip hakimlere veri desteği sunabilir. Kulağa bilim kurgu gibi gelse de, bu değişim sessiz ve kararlı bir şekilde ilerliyor. Yapay zeka geleceği değil; aslında bugünü şekillendiriyor. Şimdi en önemli soru şu: Biz bu dönüşüme ne kadar hazırız?`
                 },
                 {
                     "id": "yapay-zekanin-gelecegi-insanligin-en-buyuk-donum-noktasi-mi",
@@ -1988,7 +2008,7 @@ Tarih susmaz. Onu görmezden gelirsek, bize sessizce dersini verir. O yüzden ta
                 document.querySelector('.pagination').style.display = 'none';
                 mainCommentsSection.style.display = 'none';
                 singlePostView.style.display = 'none';
-                privacyPolicySection.style.display = 'none'; // Yeni: Gizlilik politikası bölümünü gizle
+                privacyPolicySection.style.display = 'none'; // Gizlilik politikası bölümünü gizle
 
                 if (pageId === 'home') {
                     welcomeSection.style.display = 'block';
@@ -2006,7 +2026,7 @@ Tarih susmaz. Onu görmezden gelirsek, bize sessizce dersini verir. O yüzden ta
                     donationInfo.style.display = 'block';
                 } else if (pageId === 'single-post') {
                     singlePostView.style.display = 'block';
-                } else if (pageId === 'privacy-policy') { // Yeni: Gizlilik politikası sayfasını göster
+                } else if (pageId === 'privacy-policy') {
                     privacyPolicySection.style.display = 'block';
                 }
                 window.scrollTo(0, 0);
@@ -2016,12 +2036,6 @@ Tarih susmaz. Onu görmezden gelirsek, bize sessizce dersini verir. O yüzden ta
             homeButton.addEventListener('click', function(event) {
                 event.preventDefault();
                 showPage('home');
-            });
-
-            // Hakkımızda butonuna tıklama olayı
-            aboutButton.addEventListener('click', function(event) {
-                event.preventDefault();
-                showPage('about');
             });
 
             // Favorilerim butonuna tıklama olayı
@@ -2054,16 +2068,22 @@ Tarih susmaz. Onu görmezden gelirsek, bize sessizce dersini verir. O yüzden ta
                 showPage('home');
             });
 
-            // Yeni: Gizlilik Politikası sayfasındaki "Anasayfaya Geri Dön" butonu
+            // Gizlilik Politikası sayfasındaki "Anasayfaya Geri Dön" butonu
             backFromPrivacyButton.addEventListener('click', function(event) {
                 event.preventDefault();
                 showPage('home');
             });
 
-            // Yeni: Footer'daki Gizlilik Politikası linkine tıklama olayı
+            // Footer'daki Gizlilik Politikası linkine tıklama olayı
             privacyPolicyFooterLink.addEventListener('click', function(event) {
                 event.preventDefault();
                 showPage('privacy-policy');
+            });
+
+            // Yeni: Footer'daki Hakkımızda linkine tıklama olayı
+            aboutFooterLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                showPage('about');
             });
 
             // Kategori linklerine tıklama olayı
