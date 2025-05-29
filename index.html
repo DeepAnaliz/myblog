@@ -101,7 +101,8 @@
         body.dark-mode #donation-info,
         body.dark-mode .single-post-section,
         body.dark-mode .privacy-policy-section,
-        body.dark-mode .relationship-test-section { /* Yeni tek yazı bölümü ve gizlilik politikası */
+        body.dark-mode .relationship-test-section,
+        body.dark-mode .featured-test-section .test-card { /* Yeni tek yazı bölümü ve gizlilik politikası */
             background: #2a2a2a; /* Ana içerik bölümleri daha koyu */
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
         }
@@ -1623,12 +1624,129 @@
             .relationship-test-section .test-card {
                 width: calc(50% - 15px); /* 2 kart yan yana */
             }
+            .featured-test-section .test-card {
+                width: 90%; /* Ana sayfadaki test kartı için */
+            }
         }
 
         @media (max-width: 480px) {
             .relationship-test-section .test-card {
                 width: 90%; /* Tek kart */
             }
+            .featured-test-section .test-card {
+                width: 90%; /* Ana sayfadaki test kartı için */
+            }
+        }
+
+        /* Yeni Eklenen İlişki Testi Kartı Stilleri (Ana Sayfa İçin) */
+        .featured-test-section {
+            padding: 20px;
+            max-width: 960px;
+            margin: 20px auto;
+            background: #fff; /* Ana içerik arka planıyla aynı */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .featured-test-section h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #007bff;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+        }
+
+        .featured-test-section .test-card {
+            background-color: #f0f8ff; /* Açık mavi ton */
+            border: 1px solid #b0e0e6;
+            border-radius: 10px;
+            padding: 25px;
+            max-width: 500px; /* Daha küçük bir kart */
+            margin: 0 auto; /* Ortala */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .featured-test-section .test-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .featured-test-section .test-card h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #0056b3;
+            font-size: 1.8em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .featured-test-section .test-card p {
+            font-size: 1.05em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .featured-test-section .test-card .start-test-button {
+            display: inline-block;
+            background: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-weight: bold;
+        }
+
+        .featured-test-section .test-card .start-test-button:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+
+        /* Yeni eklenen resim stili */
+        .featured-test-section .test-card .test-image {
+            max-width: 100%; /* Kartın genişliğine sığdır */
+            height: 200px; /* Sabit bir yükseklik ver */
+            object-fit: cover; /* Resmi kutuya sığdırırken oranları koru */
+            border-radius: 8px; /* Köşeleri yuvarla */
+            margin-bottom: 15px; /* Altına boşluk bırak */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Hafif gölge */
+        }
+
+        body.dark-mode .featured-test-section {
+            background: #2a2a2a;
+            color: #f4f4f4;
+        }
+
+        body.dark-mode .featured-test-section h2 {
+            color: #88bbff;
+        }
+
+        body.dark-mode .featured-test-section .test-card {
+            background-color: #1f2f3f;
+            border: 1px solid #3a5a7a;
+            box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+        }
+
+        body.dark-mode .featured-test-section .test-card:hover {
+            box-shadow: 0 8px 16px rgba(255,255,255,0.1);
+        }
+
+        body.dark-mode .featured-test-section .test-card h3 {
+            color: #aaddff;
+        }
+
+        body.dark-mode .featured-test-section .test-card p {
+            color: #bbb;
+        }
+
+        body.dark-mode .featured-test-section .test-card .start-test-button {
+            background: #0056b3;
+        }
+
+        body.dark-mode .featured-test-section .test-card .start-test-button:hover {
+            background: #003d7a;
         }
 
     </style>
@@ -1677,6 +1795,16 @@
         </p>
     </section>
 
+    <section class="featured-test-section" id="featured-test-section">
+        <h2>Öne Çıkan Testler</h2>
+        <div class="test-card" id="featured-relationship-test-card">
+            <img src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="İlişki testi görseli" class="test-image" onerror="this.onerror=null;this.src='https://placehold.co/500x200/B0E0E6/0056B3?text=İlişki+Testi';">
+            <h3>İlişkinizin Dinamikleri Testi</h3>
+            <p>Partnerinizle iletişim tarzınızı ve tartışmalara yaklaşımınızı keşfedin.</p>
+            <button class="start-test-button" data-test-id="test1">Teste Başla</button>
+        </div>
+    </section>
+
     <main class="main-content" id="blog-content">
         </main>
 
@@ -1700,7 +1828,7 @@
 
     <section class="about-section" id="about-page-content">
         <h2>Merhaba!</h2>
-        <img src="https://i.pinimg.com/736x/c2/6d/03/c26d03c5652ffc2b4cc9a1e3b5de2bc1.jpg" alt="Profil Fotoğrafım" onerror="this.onerror=null;this.src='https://placehold.co/250x250/007bff/FFFFFF?text=Resim+Yüklenemedi';">
+        <img src="https://i.pinimg.com/73x/c2/6d/03/c26d03c5652ffc2b4cc9a1e3b5de2bc1.jpg" alt="Profil Fotoğrafım" onerror="this.onerror=null;this.src='https://placehold.co/250x250/007bff/FFFFFF?text=Resim+Yüklenemedi';">
         <p>
             Yaklaşık 5 yıldır Sosyal yaşam alanında içerikler üreten bir blogger ve felsefe ile ilgilenen bir araştırmacıyım.
         </p>
@@ -1856,6 +1984,10 @@
             const backToTestListButton = document.getElementById('back-to-test-list-button'); // Yeni: Diğer testlere geri dön butonu
             const testProgressBar = document.getElementById('test-progress-bar');
             const testProgressBarContainer = document.getElementById('test-progress-bar-container'); // İlerleme çubuğu konteyneri
+
+            // Yeni eklenen ana sayfadaki İlişki Testi kartı
+            const featuredRelationshipTestCard = document.getElementById('featured-relationship-test-card');
+
 
             let selectedTest = null; // Seçilen testi tutacak değişken
             let currentQuestionIndex = 0; // Mevcut soru indeksi
@@ -2833,7 +2965,7 @@ Bir çocuğun hayali futbolcu olmaksa, o hayal neye bağlı? Şansa mı? Tanıd�
 
 Avrupa’nın birçok ülkesinde futbol eğitimi 6-7 yaşında başlar. Her yaş grubunun teknik, fiziksel ve zihinsel gelişimi adım adım takip edilir. Ülkemizdeyse birçok genç oyuncu, 14-15 yaşına gelene kadar düzgün bir sahada dahi oynayamıyor. Tesis eksik, eğitim eksik, denetim yok. Sonra da “neden büyük liglere oyuncu gönderemiyoruz?” diye soruyoruz.
 
-Oysa altyapı, sadece futbol eğitimi değil; karakter, sorumluluk ve özgüven gelişimi de demektir. Gençlere “bir hata yaparsan her şey biter” baskısı değil; “hatalardan öğrenebilirsin” anlayışı verilmeli. Ancak birçok altyapı çalışmasında hâlâ bağırmak, yıldırmak, cezayla kontrol etmek bir yöntem olarak görülüyor. Bu yaklaşım, özgüveni değil; korkuyu büyütüyor.
+Oysa altyapı, sadece futbol eğitimi değil; karakter, sorumluluk ve özgüven gelişimi de demektir. Gençlere “bir hata yaparsan her şey biter” baskısı değil; “hatalardan öğrenebilirsin” anlayışı verilmeli. Ancak birçok altyapı çalışmasında hâlâ bağırmak, yıldırmak, cezayla kontrol etmek bir yöntem olarak görülüyor. Bu yaklaşım, özgüveni değil; korkuyu büyütür.
 
 Bu sistem değişmeli. Futbol sadece ekonomik bir araç olarak değil, sosyal bir gelişim alanı olarak görülmeli. Yeteneği olan her çocuk, eşit şansa sahip olmalı. Kimin tanıdığı olduğu değil, neyi başarabileceği konuşulmalı. Altyapılar veriyle, eğitimle, bilimle yönetilmeli. Yoksa yetenekli çocukları kaybetmeye devam ederiz — hem sahada hem hayatta.
 
@@ -3104,12 +3236,14 @@ Tarih susmaz. Onu görmezden gelirsek, bize sessizce dersini verir. O yüzden ta
                 singlePostView.style.display = 'none';
                 privacyPolicySection.style.display = 'none';
                 relationshipTestSection.style.display = 'none';
+                featuredRelationshipTestCard.parentElement.style.display = 'none'; // Ana sayfadaki öne çıkan test bölümünü gizle
 
                 if (pageId === 'home') {
                     welcomeSection.style.display = 'block';
                     blogContent.style.display = 'block';
                     document.querySelector('.pagination').style.display = 'flex';
                     mainCommentsSection.style.display = 'block';
+                    featuredRelationshipTestCard.parentElement.style.display = 'block'; // Ana sayfadaki öne çıkan test bölümünü göster
                     filteredPosts = [...blogPosts];
                     loadPage(1);
                 } else if (pageId === 'about') {
@@ -3198,6 +3332,7 @@ Tarih susmaz. Onu görmezden gelirsek, bize sessizce dersini verir. O yüzden ta
 
                     showPage('home'); // Kategoriye tıklayınca ana sayfaya dön ve içeriği göster
                     welcomeSection.style.display = 'none'; // Kategori seçince karşılama mesajını gizle
+                    featuredRelationshipTestCard.parentElement.style.display = 'none'; // Kategori seçince öne çıkan testi gizle
 
                     if (selectedCategory === 'all') {
                         filteredPosts = [...blogPosts];
@@ -3237,6 +3372,8 @@ Tarih susmaz. Onu görmezden gelirsek, bize sessizce dersini verir. O yüzden ta
 
                 showPage('home'); // Arama yapınca ana sayfaya dön ve içeriği göster
                 welcomeSection.style.display = 'none'; // Arama yapınca karşılama mesajını gizle
+                featuredRelationshipTestCard.parentElement.style.display = 'none'; // Arama yapınca öne çıkan testi gizle
+
 
                 if (searchTerm.length === 0) {
                     filteredPosts = [...blogPosts];
@@ -3451,6 +3588,13 @@ Tarih susmaz. Onu görmezden gelirsek, bize sessizce dersini verir. O yüzden ta
                 displayTestList(); // Test listesine geri dön
             });
 
+            // Yeni eklenen ana sayfadaki İlişki Testi kartı tıklama olayı
+            featuredRelationshipTestCard.querySelector('.start-test-button').addEventListener('click', function() {
+                const testId = this.getAttribute('data-test-id');
+                showPage('relationship-test'); // İlişki testi sayfasını göster
+                startSpecificTest(testId); // Belirli testi başlat
+            });
+
 
             // Yukarı Çık butonu görünürlüğünü yönet
             window.onscroll = function() {
@@ -3474,6 +3618,7 @@ Tarih susmaz. Onu görmezden gelirsek, bize sessizce dersini verir. O yüzden ta
             welcomeSection.style.display = 'block';
             blogContent.style.display = 'block';
             mainCommentsSection.style.display = 'block'; // Ana sayfada yorum bölümünü göster
+            featuredRelationshipTestCard.parentElement.style.display = 'block'; // Ana sayfadaki öne çıkan test bölümünü göster
 
             // Dark Mode Toggle işlevselliği
             darkModeToggle.addEventListener('click', function() {
