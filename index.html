@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Analiz - Yapay Zeka Destekli İçerikler ve Sohbet</title>
+    <title>Deep Analiz - Derinlemesine Düşünceler ve Yorumlar</title>
     <meta name="description" content="Deep Analiz blogunda felsefe, teknoloji, tarih, sosyal yaşam ve daha birçok konuda derinlemesine düşünceler, analizler ve yorumlar bulabilirsiniz. Düşündüren, bilgilendiren ve ilham veren içerikler için bizi takip edin.">
-    <meta name="keywords" content="Deep Analiz, blog, felsefe, teknoloji, tarih, sosyal yaşam, yapay zeka, din, siyaset, insanlık, moda, futbol, analiz, yorum, düşünce, araştırma, yapay zeka sohbet, AI chat">
+    <meta name="keywords" content="Deep Analiz, blog, felsefe, teknoloji, tarih, sosyal yaşam, yapay zeka, din, siyaset, insanlık, moda, futbol, analiz, yorum, düşünce, araştırma">
     <meta name="author" content="Deep Analiz">
-    <link rel="canonical" href="https://example.com/"> <meta property="og:title" content="Deep Analiz - Yapay Zeka Destekli İçerikler ve Sohbet">
+    <link rel="canonical" href="https://example.com/"> <meta property="og:title" content="Deep Analiz - Derinlemesine Düşünceler ve Yorumlar">
     <meta property="og:description" content="Deep Analiz blogunda felsefe, teknoloji, tarih, sosyal yaşam ve daha birçok konuda derinlemesine düşünceler, analizler ve yorumlar bulabilirsiniz.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://example.com/"> <meta property="og:image" content="https://placehold.co/1200x630/007bff/FFFFFF?text=Deep+Analiz+Blog"> <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Deep Analiz - Yapay Zeka Destekli İçerikler ve Sohbet">
+    <meta name="twitter:title" content="Deep Analiz - Derinlemesine Düşünceler ve Yorumlar">
     <meta name="twitter:description" content="Deep Analiz blogunda felsefe, teknoloji, tarih, sosyal yaşam ve daha birçok konuda derinlemesine düşünceler ve yorumlar bulabilirsiniz.">
     <meta name="twitter:image" content="https://placehold.co/1200x675/007bff/FFFFFF?text=Deep+Analiz+Blog"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-M7ENWDYTW2"></script>
     <script>
@@ -65,7 +64,7 @@
         }
 
         body.dark-mode .category-dropdown-content a {
-            color: #f4f4f4; /* Dark mode'da metin rengi */
+            color: #f4f4f4;
             border-bottom: 1px solid #3a3a3a;
         }
 
@@ -90,12 +89,12 @@
             box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
         }
 
-        body.dark-mode .search-container button {
-            background: #0056b3; /* Dark mode için buton rengi */
+        /* welcome-section kaldırıldığı için bu stil kaldırıldı
+        body.dark-mode .welcome-section {
+            background-color: #004085;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
         }
-        body.dark-mode .search-container button:hover {
-            background: #003d7a;
-        }
+        */
 
         body.dark-mode .main-content,
         body.dark-mode .about-section,
@@ -108,18 +107,8 @@
             background: #2a2a2a; /* Ana içerik bölümleri daha koyu */
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
         }
-        /* AI chat section and new homepage sections */
-        body.dark-mode #ai-chat-section,
-        body.dark-mode #recent-posts-section,
-        body.dark-mode #featured-categories-section,
-        body.dark-mode #about-snippet-section {
-            background: #2a2a2a;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-        }
-
 
         body.dark-mode .blog-post {
-            background-color: #2a2a2a; /* Blog post arka planı */
             border-bottom: 1px solid #3a3a3a;
             box-shadow: 0 2px 8px rgba(255,255,255,0.05); /* Dark mode için kart gölgesi */
         }
@@ -329,11 +318,6 @@
             border-bottom: 1px solid #eee;
         }
 
-        body.dark-mode .category-dropdown-content a {
-            color: #f4f4f4; /* Dark mode'da metin rengi */
-            border-bottom: 1px solid #3a3a3a;
-        }
-
         .category-dropdown-content a:last-child {
             border-bottom: none;
         }
@@ -342,10 +326,6 @@
             background-color: #e0e0e0;
             padding-left: 20px;
         }
-        body.dark-mode .category-dropdown-content a:hover {
-            background-color: #4a4a4a;
-        }
-
 
         .category-dropdown-content.show {
             display: block;
@@ -409,12 +389,6 @@
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        body.dark-mode .search-container input[type="text"] {
-            background-color: #3a3a3a;
-            color: #f4f4f4;
-            border-color: #555;
-        }
-
         .search-container button {
             padding: 12px 20px;
             background: #28a745;
@@ -427,19 +401,39 @@
             transition: background 0.3s ease, transform 0.2s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        body.dark-mode .search-container button {
-            background: #0056b3; /* Dark mode için buton rengi */
-        }
-
 
         .search-container button:hover {
             background: #218838;
             transform: translateY(-2px);
         }
-        body.dark-mode .search-container button:hover {
-            background: #003d7a;
+
+        /* Anasayfa Karşılama Bölümü kaldırıldığı için bu stil kaldırıldı
+        .welcome-section {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 960px;
+            margin: 20px auto;
         }
 
+        .welcome-section h2 {
+            font-family: 'Poppins', sans-serif;
+            margin-top: 0;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+        }
+
+        .welcome-section p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        */
 
         /* Ana İçerik Alanı (Blog Yazıları) */
         .main-content {
@@ -468,7 +462,6 @@
         }
 
         body.dark-mode .blog-post {
-            background-color: #2a2a2a; /* Blog post arka planı */
             border-bottom: 1px solid #3a3a3a;
             box-shadow: 0 2px 8px rgba(255,255,255,0.05); /* Dark mode için kart gölgesi */
         }
@@ -698,9 +691,6 @@
             margin-bottom: 10px;
             color: #555;
         }
-        body.dark-mode .about-section ul li {
-            color: #f4f4f4; /* Dark mode'da liste öğeleri metin rengi */
-        }
         .back-button {
             display: inline-block;
             background: #6c757d;
@@ -864,11 +854,6 @@
             resize: vertical;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        body.dark-mode .comments-section-main textarea {
-            background-color: #3a3a3a;
-            color: #f4f4f4;
-            border-color: #555;
-        }
 
         .comments-section-main textarea:focus {
             border-color: #007bff;
@@ -897,9 +882,6 @@
             font-size: 0.9em;
             color: #777;
             margin-top: 15px;
-        }
-        body.dark-mode .comments-section-main .placeholder-text {
-            color: #bbb;
         }
 
 
@@ -935,11 +917,6 @@
             border-radius: 8px;
             margin-top: 30px;
         }
-        body.dark-mode .favorites-section .empty-message {
-            color: #bbb;
-            border-color: #555;
-        }
-
 
         /* Favori Butonu Stilleri */
         .favorite-button {
@@ -1078,9 +1055,6 @@
             margin-bottom: 20px;
             text-align: center;
         }
-        body.dark-mode .single-post-section .post-meta {
-            color: #bbb;
-        }
 
         .single-post-section .post-image {
             max-width: 100%;
@@ -1098,9 +1072,6 @@
             text-align: justify;
             word-wrap: break-word;
             overflow-wrap: break-word;
-        }
-        body.dark-mode .single-post-section p {
-            color: #f4f4f4;
         }
 
         .single-post-section .back-to-blog-button {
@@ -1233,6 +1204,16 @@
                 margin-left: 0;
             }
 
+            /* welcome-section kaldırıldığı için bu stil kaldırıldı
+            .welcome-section h2 {
+                font-size: 2.2em;
+            }
+
+            .welcome-section p {
+                font-size: 1.1em;
+            }
+            */
+
             .blog-post h2 {
                 font-size: 1.8em;
             }
@@ -1328,6 +1309,16 @@
                 font-size: 0.9em;
                 padding: 8px 12px;
             }
+
+            /* welcome-section kaldırıldığı için bu stil kaldırıldı
+            .welcome-section h2 {
+                font-size: 1.8em;
+            }
+
+            .welcome-section p {
+                font-size: 0.9em;
+            }
+            */
 
             .blog-post h2 {
                 font-size: 1.5em;
@@ -1455,18 +1446,10 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        body.dark-mode .relationship-test-section .options-container button {
-            background-color: #0056b3; /* Dark mode için buton rengi */
-        }
-
         .relationship-test-section .options-container button:hover {
             background-color: #0056b3;
             transform: translateY(-2px);
         }
-        body.dark-mode .relationship-test-section .options-container button:hover {
-            background-color: #003d7a;
-        }
-
 
         .relationship-test-section .test-result {
             margin-top: 30px;
@@ -1568,211 +1551,116 @@
             }
         }
 
-        /* AI Chat Section Styles */
-        #ai-chat-section {
-            padding: 30px;
-            max-width: 960px;
-            margin: 20px auto;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        body.dark-mode #ai-chat-section {
-            background: #2a2a2a;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-        }
-
-        #ai-chat-section h2 {
-            font-family: 'Poppins', sans-serif;
-            color: #007bff;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+        /* Yeni Kategori Kutuları Stilleri */
+        .category-boxes-container {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        body.dark-mode #ai-chat-section h2 {
-            color: #88bbff;
+            flex-wrap: nowrap; /* Kutuların alt satıra geçmesini engeller */
+            justify-content: center; /* Kutuları ortalar */
+            gap: 20px; /* Kutular arasında boşluk */
+            margin-top: 30px; /* Arama çubuğundan boşluk bırak */
+            margin-bottom: 40px; /* Blog yazılarından boşluk bırak */
+            width: 100%; /* Konteynerin tam genişlik kaplamasını sağlar */
+            max-width: 960px; /* Maksimum genişlik sınırı */
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px; /* Kutu içeriğine göre padding */
+            background-color: #f9f9f9; /* Hafif bir arka plan rengi */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* Hafif bir gölge */
         }
 
-        #ai-chat-output {
-            height: 300px;
-            overflow-y: auto;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            background-color: #f0f0f0; /* Light mode background for chat output */
-            text-align: left;
+        body.dark-mode .category-boxes-container {
+            background-color: #2a2a2a; /* Dark mode için daha koyu arka plan */
+            box-shadow: 0 2px 10px rgba(255,255,255,0.05);
+        }
+
+        .category-box {
+            background-color: #ffffff; /* Kutuların kendi arka plan rengi */
+            border-radius: 8px; /* Köşeleri hafifçe yuvarlar */
+            padding: 15px; /* Kutunun içindeki boşluk */
+            text-align: center; /* İçindeki metni ortaya hizalar */
+            flex: 1; /* Esnekliği ayarlar, kutuların eşit genişlikte olmasını sağlar */
+            min-width: 280px; /* Kutuların minimum genişliği */
+            max-width: 300px; /* Kutuların maksimum genişliği */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            scroll-behavior: smooth;
-        }
-        body.dark-mode #ai-chat-output {
-            background-color: #222; /* Dark mode background for chat output */
-            border-color: #555;
-            color: #f4f4f4;
+            align-items: center;
+            justify-content: center;
         }
 
-        .chat-message {
-            padding: 10px 15px;
-            border-radius: 15px;
-            max-width: 80%;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        .category-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            background-color: #eef; /* Hafif hover rengi */
         }
 
-        .user-message {
-            background-color: #fff; /* White background for user messages */
-            color: #333; /* Black text for user messages */
-            align-self: flex-end;
-            border-bottom-right-radius: 5px;
-            /* Removed background-image */
-        }
-        body.dark-mode .user-message {
-            background-color: #fff; /* White background for user messages in dark mode */
-            color: #333; /* Black text for user messages in dark mode */
+        body.dark-mode .category-box {
+            background-color: #3a3a3a; /* Dark mode için daha koyu kutu */
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
         }
 
-
-        .ai-message {
-            background-color: #000; /* Black background for AI messages */
-            color: #fff; /* White text for AI messages */
-            align-self: flex-start;
-            border-bottom-left-radius: 5px;
-            /* Removed background-image */
-        }
-        body.dark-mode .ai-message {
-            background-color: #000; /* Black background for AI messages in dark mode */
-            color: #fff; /* White text for AI messages in dark mode */
+        body.dark-mode .category-box:hover {
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+            background-color: #4a4a4a;
         }
 
-        #ai-chat-input-container {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
+        .category-box-image {
+            width: 100%; /* Kutunun genişliği kadar genişlik kaplar */
+            height: 150px; /* Sabit bir yükseklik verir (dikdörtgen) */
+            object-fit: cover; /* Resmi kutuya sığdırır, oranını korur ve kutuyu doldurur */
+            border-radius: 8px; /* Köşeleri hafifçe yuvarlar (isteğe bağlı) */
+            margin-bottom: 15px;
+            border: 3px solid #007bff; /* Mavi çerçeve */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
-        #ai-chat-input {
-            flex-grow: 1;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 1.1em;
-            outline: none;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        body.dark-mode #ai-chat-input {
-            background-color: #3a3a3a;
-            color: #f4f4f4;
-            border-color: #555;
+        body.dark-mode .category-box-image {
+            border: 3px solid #88bbff; /* Dark mode için daha açık mavi çerçeve */
         }
 
-        #ai-chat-input:focus {
-            border-color: #007bff;
-            box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
-        }
-
-        #ai-send-button {
-            background-color: #000; /* Black background for send button */
-            color: white; /* White text for send button */
-            padding: 12px 20px;
-            border: 1px solid #000; /* Black border for send button */
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1em;
-            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            /* Removed background-image */
-        }
-
-        #ai-send-button:hover {
-            background: #333; /* Darker black on hover */
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-            border-color: #333;
-            /* Removed background-image */
-        }
-        body.dark-mode #ai-send-button {
-            background-color: #fff; /* White background for send button in dark mode */
-            color: #000; /* Black text for send button in dark mode */
-            border: 1px solid #fff; /* White border for send button in dark mode */
-        }
-        body.dark-mode #ai-send-button:hover {
-            background-color: #eee; /* Lighter white on hover in dark mode */
-            border-color: #eee;
-        }
-
-
-        .loading-indicator {
-            display: none;
-            margin-top: 10px;
-            font-style: italic;
-            color: #777;
-            text-align: center;
-        }
-        body.dark-mode .loading-indicator {
-            color: #bbb;
-        }
-
-        @media (max-width: 480px) {
-            #ai-chat-input-container {
-                flex-direction: column;
-            }
-            #ai-chat-input, #ai-send-button {
-                width: 100%;
-                margin-left: 0;
-            }
-        }
-
-        /* Featured Categories Card Styles */
-        .category-card {
-            background-color: #f0f8ff; /* Light blue */
-            border: 1px solid #b0e0e6;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        body.dark-mode .category-card {
-            background-color: #1f2f3f; /* Dark blue */
-            border: 1px solid #3a5a7a;
-            box-shadow: 0 4px 8px rgba(255,255,255,0.05);
-        }
-
-        .category-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-        body.dark-mode .category-card:hover {
-            box-shadow: 0 8px 16px rgba(255,255,255,0.1);
-        }
-
-        .category-card h3 {
+        .category-box h3 {
             font-family: 'Poppins', sans-serif;
-            color: #0056b3;
             font-size: 1.4em;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-        body.dark-mode .category-card h3 {
-            color: #aaddff;
+            color: #333; /* Başlık rengi */
+            margin: 0;
         }
 
-        .category-card p {
-            font-size: 0.9em;
-            color: #555;
+        body.dark-mode .category-box h3 {
+            color: #f4f4f4; /* Dark mode başlık rengi */
         }
-        body.dark-mode .category-card p {
-            color: #bbb;
+
+        /* Responsive ayarlamalar - 3 kutu yan yana kalacak şekilde güncellendi */
+        @media (max-width: 960px) { /* Maksimum genişlikten daha küçükse */
+            .category-boxes-container {
+                padding: 10px; /* Yan boşlukları azalt */
+                gap: 15px; /* Kutular arası boşluğu azalt */
+            }
+            .category-box {
+                min-width: 250px; /* Kutuların minimum genişliğini ayarla */
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) { /* Tabletler için */
+            .category-boxes-container {
+                flex-wrap: wrap; /* Kutuların alt satıra geçmesini sağlar */
+                justify-content: center; /* Ortalar */
+            }
+            .category-box {
+                flex: 1 1 calc(50% - 30px); /* 2 kutu yan yana */
+                max-width: 350px; /* Maksimum genişliği artır */
+                margin-bottom: 20px; /* Alt alta geçince aralarına boşluk */
+            }
+        }
+
+        @media (max-width: 480px) { /* Mobil cihazlar için */
+            .category-box {
+                flex: 1 1 90%; /* Tek kutu tam genişlik */
+                max-width: 400px; /* Maksimum genişliği artır */
+            }
         }
 
     </style>
@@ -1788,7 +1676,8 @@
                 <a href="#" data-category-name="insanlik">İnsanlık</a>
                 <a href="#" data-category-name="siyaset">Siyaset</a>
                 <a href="#" data-category-name="sosyal-yasam">Sosyal Yaşam</a>
-                <a href="#" data-category-name="teknoloji">Teknoloji</a> <a href="#" data-category-name="moda">Moda</a>
+                <a href="#" data-category-name="futbol">Futbol</a>
+                <a href="#" data-category-name="moda">Moda</a>
                 <a href="#" data-category-name="tarih">Tarih</a>
                 <a href="#" data-category-name="yapay-zeka">Yapay Zeka</a>
                 <a href="#" data-category-name="hayvanlar">Hayvanlar</a>
@@ -1797,10 +1686,9 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#" id="home-nav-button">Yapay Zeka</a></li> <li><a href="#" id="blog-nav-button">Blog Yazıları</a></li>
+                <li><a href="#" id="home-nav-button">Anasayfa</a></li>
                 <li><a href="#" id="favorites-nav-button">Favorilerim</a></li>
-                <li><a href="#" id="relationship-test-nav-button">İlişki Testi</a></li>
-                <li><a href="#" id="donate-nav-button">Destek Ol</a></li>
+                <li><a href="#" id="relationship-test-nav-button">İlişki Testi</a></li> <li><a href="#" id="donate-nav-button">Destek Ol</a></li>
             </ul>
         </nav>
         <button class="dark-mode-toggle" id="darkModeToggle">
@@ -1808,50 +1696,27 @@
         </button>
     </header>
 
-    <div class="search-container" id="blog-search-container" style="display: none;">
+    <div class="category-boxes-container" id="homepage-category-boxes">
+        <div class="category-box" data-category-name="yapay-zeka">
+            <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="[Image of Yapay Zeka]" class="category-box-image">
+            <h3>Yapay Zeka</h3>
+        </div>
+        <div class="category-box" data-category-name="ingilizce-ogrenme">
+            <img src="https://i.pinimg.com/736x/b8/ec/1c/b8ec1cd0454c5017664198f8202cf268.jpg" alt="[Image of İngilizce Öğrenme]" class="category-box-image">
+            <h3>İngilizce Öğrenme</h3>
+        </div>
+        <div class="category-box" data-category-name="hayvanlar">
+            <img src="https://i.pinimg.com/736x/7e/e3/fc/7ee3fc8f02441ad86fcafa66406fcb12.jpg" alt="[Image of Hayvanlar Alemi]" class="category-box-image">
+            <h3>Hayvanlar Alemi</h3>
+        </div>
+    </div>
+
+    <div class="search-container">
         <input type="text" id="searchInput" placeholder="Yazılarda ara...">
         <button id="searchButton">Ara</button>
     </div>
 
-    <main id="homepage-sections-container">
-        <section id="ai-chat-section" class="main-content">
-            <h2><i class="fas fa-brain"></i> Deep Analiz</h2> <div id="ai-chat-output">
-                <div class="chat-message ai-message">Merhaba! Deep Analiz'e hoş geldiniz. Size nasıl yardımcı olabilirim?</div>
-            </div>
-            <div id="ai-chat-input-container">
-                <input type="text" id="ai-chat-input" placeholder="Mesajınızı buraya yazın...">
-                <button id="ai-send-button">Gönder</button>
-            </div>
-            <p class="loading-indicator" id="ai-loading-indicator">Yapay zeka düşünüyor...</p>
-        </section>
-
-        <section id="recent-posts-section" class="main-content">
-            <h2><i class="fas fa-newspaper"></i> Son Yazılar</h2>
-            <div id="recent-posts-container">
-                </div>
-            <div class="text-center mt-8">
-                <a href="#" id="view-all-blog-posts" class="read-more">Tüm Blog Yazılarını Görüntüle</a>
-            </div>
-        </section>
-
-        <section id="featured-categories-section" class="main-content">
-            <h2><i class="fas fa-tags"></i> Öne Çıkan Kategoriler</h2>
-            <div id="featured-categories-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                </div>
-        </section>
-
-        <section id="about-snippet-section" class="main-content">
-            <h2><i class="fas fa-info-circle"></i> Deep Analiz Hakkında</h2>
-            <p class="text-justify">
-                Deep Analiz, felsefe, teknoloji, tarih, sosyal yaşam ve daha birçok konuda derinlemesine düşünceler, analizler ve yorumlar sunan bir blogdur. Amacımız, düşündüren, bilgilendiren ve ilham veren içerikler sunarak birlikte öğrenme yolculuğuna çıkmak. İnsanlığın karmaşık doğasını, teknolojinin geleceğini ve toplumsal dinamikleri keşfederken bize katılın.
-            </p>
-            <div class="text-center mt-8">
-                <a href="#" id="read-more-about-us" class="read-more">Devamını Oku</a>
-            </div>
-        </section>
-    </main>
-
-    <section class="main-content" id="blog-content" style="display: none;">
+    <main class="main-content" id="blog-content">
         <article id="homepage-relationship-test-card" class="blog-post">
             <h2>İlişki Testleri: Kendinizi ve İlişkinizi Keşfedin!</h2>
             <p class="post-meta">Kategori: İlişki Testleri</p>
@@ -1859,29 +1724,29 @@
             <p>İlişkinizdeki dinamikleri, aşk dilinizi, güven seviyenizi ve iletişim tarzınızı keşfetmek ister misiniz? Birbirinizi daha iyi anlamak ve ilişkinizi güçlendirmek için hazırladığımız testlere göz atın!</p>
             <a href="#" class="read-more" id="homepage-test-button">Testlere Başla</a>
         </article>
-    </section>
+    </main>
 
-    <div class="pagination" id="blog-pagination" style="display: none;">
+    <div class="pagination">
         <button id="prevPage" disabled>&laquo; Önceki</button>
         <button id="nextPage">Sonraki &raquo;</button>
     </div>
 
-    <section class="comments-section-main" id="main-comments-section" style="display: none;">
+    <section class="comments-section-main" id="main-comments-section">
         <h4>Genel Yorum Bırakın</h4>
         <textarea id="mainCommentTextarea" placeholder="Genel yorumunuzu veya site hakkındaki düşüncelerinizi buraya yazın..."></textarea>
         <button id="mainCommentSubmitButton">Yorum Gönder</button>
         <p class="placeholder-text">Bu yorum bölümü şu anda geliştirme aşamasındadır. Yakında aktif olacaktır!</p>
     </section>
 
-    <div id="donation-info" style="display: none;">
+    <div id="donation-info">
         <h3>Blogumu Desteklemek İster Misiniz?</h3>
         <p>İçeriklerimi beğeniyorsanız ve daha fazlasının gelmesini istiyorsanız, bağışlarınızla bana destek olabilirsiniz. Destekleriniz, bu blogu sürdürmem ve sizlere daha kaliteli içerikler sunabilmem için büyük önem taşımaktadır.</p>
         <p style="font-size:1.1em; margin-top:30px; color:#007bff; text-align:center; font-weight:bold;">Bağış ve destek seçenekleri yakında aktif olacaktır. Anlayışınız için teşekkür ederiz!</p>
     </div>
 
-    <section class="about-section" id="about-page-content" style="display: none;">
+    <section class="about-section" id="about-page-content">
         <h2>Merhaba!</h2>
-        <img src="https://i.pinimg.com/73x/c2/6d/03/c26d03c5652ffc2b4cc9a1e3b5de2bc1.jpg" alt="[Image of Profil Fotoğrafım]" onerror="this.onerror=null;this.src='https://placehold.co/250x250/007bff/FFFFFF?text=Resim+Yüklenemedi';">
+        <img src="https://i.pinimg.com/736x/c2/6d/03/c26d03c5652ffc2b4cc9a1e3b5de2bc1.jpg" alt="[Image of Profil Fotoğrafım]" onerror="this.onerror=null;this.src='https://placehold.co/250x250/007bff/FFFFFF?text=Resim+Yüklenemedi';">
         <p>
             Yaklaşık 5 yıldır Sosyal yaşam alanında içerikler üreten bir blogger ve felsefe ile ilgilenen bir araştırmacıyım.
         </p>
@@ -1898,34 +1763,34 @@
             <li>**Eğitim:** Bilgisayar/Sosyoloji</li>
             <li>**İlgi Alanları:** Kitap okumak, Tartışmak, Gezmek</li>
         </ul>
-        <a href="#" id="back-to-home-button" class="back-button">Yapay Zeka'ya Geri Dön</a>
+        <a href="#" id="back-to-home-button" class="back-button">Anasayfaya Geri Dön</a>
     </section>
 
-    <section class="favorites-section" id="favorites-page-content" style="display: none;">
+    <section class="favorites-section" id="favorites-page-content">
         <h2>Favori Yazılarım</h2>
         <div id="favorite-posts-container">
             </div>
         <p class="empty-message" id="empty-favorites-message" style="display: none;">Henüz favori yazınız bulunmamaktadır. Beğendiğiniz yazıları favorilerinize ekleyerek buraya kaydedebilirsiniz.</p>
-        <a href="#" id="back-from-favorites-button" class="back-button">Yapay Zeka'ya Geri Dön</a>
+        <a href="#" id="back-from-favorites-button" class="back-button">Anasayfaya Geri Dön</a>
     </section>
 
-    <section class="single-post-section" id="single-post-view" style="display: none;">
+    <section class="single-post-section" id="single-post-view">
         <div id="single-post-content">
             </div>
-        <a href="#" id="back-from-post-button" class="back-to-blog-button">Blog Yazılarına Geri Dön</a>
+        <a href="#" id="back-from-post-button" class="back-to-blog-button">Tüm Yazılara Geri Dön</a>
     </section>
 
-    <section class="privacy-policy-section" id="privacy-policy-section" style="display: none;">
+    <section class="privacy-policy-section" id="privacy-policy-section">
         <h2>Gizlilik Politikası</h2>
         <p><strong>Son Güncelleme: 28 Mayıs 2025</strong></p>
 
         <p>
             "Deep Analiz" web sitesi olarak gizliliğinize önem veriyoruz. Bu politika, sitemizi ziyaret ettiğinizde hangi bilgileri topladığımızı, nasıl kullandığımızı ve koruduğumuzu açıklar. Doğrudan kişisel bilgi toplamıyoruz. Ancak Google Analytics gibi üçüncü taraf hizmetler aracılığıyla ziyaret edilen sayfalar, sitede geçirilen süre, anonimleştirilmiş IP adresi, cihaz bilgileri, genel konum ve referans kaynakları gibi veriler otomatik olarak toplanabilir. Bu veriler, sitemizin performansını ve kullanıcı deneyimini iyileştirmek için kullanılır. Web sitemiz, kullanıcı deneyimini geliştirmek için çerezler kullanabilir. Tarayıcı ayarlarınızdan çerezleri devre dışı bırakabilirsiniz, ancak bu, sitenin bazı özelliklerinin düzgün çalışmamasına neden olabilir. Veri analizi için Google Analytics gibi üçüncü taraf hizmetlerini kullanıyoruz. Bu hizmetlerin kendi gizlilik politikaları vardır ve bizim bu politikalar üzerinde kontrolümüz yoktur. Daha fazla bilgi için Google'ın gizlilik politikalarını inceleyebilirsiniz. Toplanan hiçbir kişisel bilgi (anonimleştirilmiş veriler hariç) üçüncü taraflarla satılmaz, kiralanmaz veya paylaşılmaz. Yalnızca yasal zorunluluklar veya resmi makamların talepleri doğrultusunda bilgi paylaşımı yapılabilir. Verilerin güvenliğini sağlamak için teknik ve idari önlemler almaktayız. Ancak, internet üzerinden hiçbir veri aktarımının %100 güvenli olmadığını unutmamak gerekir. Bu Gizlilik Politikası zaman zaman güncellenebilir. Güncelleştirmeler, bu sayfada yayımlandığı anda yürürlüğe girer. Gizlilik Politikamızla ilgili sorularınız için lütfen <a href="mailto:destek@kesifyolculugu.com">destek@deepanaliz.com</a> adresinden bizimle iletişime geçin.
         </p>
-        <a href="#" id="back-from-privacy-button" class="back-button">Yapay Zeka'ya Geri Dön</a>
+        <a href="#" id="back-from-privacy-button" class="back-button">Anasayfaya Geri Dön</a>
     </section>
 
-    <section class="relationship-test-section" id="relationship-test-section" style="display: none;">
+    <section class="relationship-test-section" id="relationship-test-section">
         <h2>İlişki Testleri</h2>
         <p>İlişkinizdeki dinamikleri ve kendinizi keşfetmek için bir test seçin!</p>
 
@@ -1970,8 +1835,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const homeNavButton = document.getElementById('home-nav-button'); // Yapay Zeka butonu
-            const blogNavButton = document.getElementById('blog-nav-button');
+            const homeButton = document.getElementById('home-nav-button');
             const favoritesButton = document.getElementById('favorites-nav-button');
             const relationshipTestButton = document.getElementById('relationship-test-nav-button');
             const donateButton = document.getElementById('donate-nav-button');
@@ -1979,17 +1843,12 @@
             const backFromFavoritesButton = document.getElementById('back-from-favorites-button');
             const backFromPostButton = document.getElementById('back-from-post-button');
             const backFromPrivacyButton = document.getElementById('back-from-privacy-button');
-
-            const homepageSectionsContainer = document.getElementById('homepage-sections-container'); // Yeni ana sayfa konteyneri
-            const blogContent = document.getElementById('blog-content'); // Blog yazıları bölümü
-            const blogSearchContainer = document.getElementById('blog-search-container'); // Blog arama konteyneri
-            const blogPagination = document.getElementById('blog-pagination'); // Blog sayfalama
-            const mainCommentsSection = document.getElementById('main-comments-section'); // Genel yorumlar
-
+            const blogContent = document.getElementById('blog-content');
             const aboutPageContent = document.getElementById('about-page-content');
             const favoritesPageContent = document.getElementById('favorites-page-content');
             const favoritePostsContainer = document.getElementById('favorite-posts-container');
             const emptyFavoritesMessage = document.getElementById('empty-favorites-message');
+            const mainCommentsSection = document.getElementById('main-comments-section');
             const mainCommentTextarea = document.getElementById('mainCommentTextarea');
             const mainCommentSubmitButton = document.getElementById('mainCommentSubmitButton');
             const donationInfo = document.getElementById('donation-info');
@@ -2002,6 +1861,8 @@
             // Yeni eklenen elementler
             const homepageRelationshipTestCard = document.getElementById('homepage-relationship-test-card');
             const homepageTestButton = document.getElementById('homepage-test-button');
+            const homepageCategoryBoxes = document.getElementById('homepage-category-boxes'); // Yeni eklenen kategori kutuları konteyneri
+
 
             // Kategori menüsü elementleri
             const categoryButton = document.getElementById('category-button');
@@ -2034,7 +1895,7 @@
 
             // İlişki Testi Elementleri
             const relationshipTestSection = document.getElementById('relationship-test-section');
-            const testListContainer = document.getElementById('test-list-container');
+            const testListContainer = document.getElementById('test-list-container'); // Yeni: Test listesi konteyneri
             const testQuestionContainer = document.getElementById('test-question-container');
             const testQuestionElement = document.getElementById('test-question');
             const testOptionsContainer = document.getElementById('test-options');
@@ -2043,33 +1904,13 @@
             const resultImageElement = document.getElementById('result-image');
             const resultDescriptionElement = document.getElementById('result-description');
             const resetTestButton = document.getElementById('reset-test-button');
-            const backToTestListButton = document.getElementById('back-to-test-list-button');
+            const backToTestListButton = document.getElementById('back-to-test-list-button'); // Yeni: Diğer testlere geri dön butonu
             const testProgressBar = document.getElementById('test-progress-bar');
-            const testProgressBarContainer = document.getElementById('test-progress-bar-container');
+            const testProgressBarContainer = document.getElementById('test-progress-bar-container'); // İlerleme çubuğu konteyneri
 
-            let selectedTest = null;
-            let currentQuestionIndex = 0;
+            let selectedTest = null; // Seçilen testi tutacak değişken
+            let currentQuestionIndex = 0; // Mevcut soru indeksi
             let userScore = 0;
-
-            // Yapay Zeka Sohbet Elementleri
-            const aiChatSection = document.getElementById('ai-chat-section');
-            const aiChatOutput = document.getElementById('ai-chat-output');
-            const aiChatInput = document.getElementById('ai-chat-input');
-            const aiSendButton = document.getElementById('ai-send-button');
-            const aiLoadingIndicator = document.getElementById('ai-loading-indicator');
-            // Sohbet geçmişini sınırlı tutarak performansı artır
-            const MAX_CHAT_HISTORY_LENGTH = 12; // Son 6 kullanıcı ve 6 AI mesajı (toplam 12)
-            let chatHistory = [{ role: "model", parts: [{ text: "Merhaba! Deep Analiz'e hoş geldiniz. Size nasıl yardımcı olabilirim?" }] }]; // Sohbet geçmişi
-
-            // Yeni Ana Sayfa Bölümleri
-            const recentPostsSection = document.getElementById('recent-posts-section');
-            const recentPostsContainer = document.getElementById('recent-posts-container');
-            const featuredCategoriesSection = document.getElementById('featured-categories-section');
-            const featuredCategoriesContainer = document.getElementById('featured-categories-container');
-            const aboutSnippetSection = document.getElementById('about-snippet-section');
-            const viewAllBlogPostsButton = document.getElementById('view-all-blog-posts');
-            const readMoreAboutUsButton = document.getElementById('read-more-about-us');
-
 
             // İlişki Testleri Verisi (5 farklı test, her test 8 soru ve her soru 5 cevap)
             const allRelationshipTests = [
@@ -2165,28 +2006,28 @@
                             maxScore: 40,
                             title: "Çok Güçlü ve Sağlam Bağ!",
                             description: `İlişkiniz, derin bir anlayış ve karşılıklı saygı üzerine inşa edilmiş sağlam bir kale gibi. Tartışmalar bile sizin için bir büyüme fırsatı; her zorluğun üstesinden birlikte, yapıcı bir şekilde geliyorsunuz. Partnerinizle aranızdaki bu uyum, ilişkinizi adeta bir senfoniye dönüştürüyor. Her an, sevgi ve güvenle dolu, huzurlu bir birlikteliği yansıtıyor. Bu bağ, sizi her geçen gün daha da yakınlaştırıyor.`,
-                            image: "https://i.pinimg.com/73x/c1/ed/fd/c1edfd6c659d1cb2552b1be034447fd9.jpg" // Yeşil tonlarda bir görsel
+                            image: "https://i.pinimg.com/736x/c1/ed/fd/c1edfd6c659d1cb2552b1be034447fd9.jpg" // Yeşil tonlarda bir görsel
                         },
                         {
                             minScore: 24,
                             maxScore: 31,
                             title: "Dengeli ve Gelişime Açık İlişki!",
                             description: `İlişkiniz sağlam bir temel üzerinde ilerliyor ve büyük bir potansiyel taşıyor. Uyumlu bir iletişim tarzına sahipsiniz, ancak bazen duygusal hassasiyetler veya küçük pürüzler yaşanabilir. Daha fazla açık sözlülük ve empati, ilişkinizi bir sonraki seviyeye taşıyabilir. Birlikte büyümeye ve öğrenmeye devam edin, her adımda birbirinize daha da kenetleneceksiniz.`,
-                            image: "https://i.pinimg.com/73x/35/ed/d1/35edd1f4562e48acbc207ea5f93aa727.jpg" // Mavi tonlarda bir görsel
+                            image: "https://i.pinimg.com/736x/35/ed/d1/35edd1f4562e48acbc207ea5f93aa727.jpg" // Mavi tonlarda bir görsel
                         },
                         {
                             minScore: 16,
                             maxScore: 23,
                             title: "Dinamik ve Keşif Dolu!",
                             description: `İlişkiniz enerji ve heyecan dolu, asla sıkıcı değil! Farklı iletişim tarzları ve bazen yaşanan gerginlikler, ilişkinize dinamizm katıyor. Ancak bu dinamizm bazen küçük fırtınalara yol açabilir. Duygusal zekanızı daha sık kullanarak ve birbirinize daha fazla anlayış göstererek bu tutkuyu daha dengeli bir zemine oturtabilirsiniz. Unutmayın, her fırtınanın ardından gökkuşağı çıkar!`,
-                            image: "https://i.pinimg.com/73x/fe/50/49/fe5049d4650b0e0aac9a7c82f4bfd9a2.jpg" // Sarı tonlarda bir görsel
+                            image: "https://i.pinimg.com/736x/fe/50/49/fe5049d4650b0e0aac9a7c82f4bfd9a2.jpg" // Sarı tonlarda bir görsel
                         },
                         {
                             minScore: 8,
                             maxScore: 15,
                             title: "Farkındalık ve Gelişim Alanları!",
                             description: `İlişkiniz henüz yolun başında olabilir veya bazı konularda daha fazla keşfe ihtiyacınız var. İletişim tarzlarınız arasında farklılıklar olabilir ve bu durum bazen anlaşmazlıklara yol açabilir. Birbirinizi daha iyi tanımak, beklentilerinizi netleştirmek ve açık iletişim kurmak için harika bir dönemdesiniz. Sabır ve anlayışla, ilişkinizi istediğiniz yöne taşıyabilirsiniz!`,
-                            image: "https://i.pinimg.com/73x/28/cd/2e/28cd2e88002f7619f7449d5f70126b5d.jpg" // Kırmızı tonlarda bir görsel
+                            image: "https://i.pinimg.com/736x/28/cd/2e/28cd2e88002f7619f7449d5f70126b5d.jpg" // Kırmızı tonlarda bir görsel
                         }
                     ]
                 },
@@ -2282,28 +2123,28 @@
                             maxScore: 40,
                             title: "Sözlerin ve Eylemlerin Gücü!",
                             description: `Sizin için aşk, hem duyulan hem de görülen bir şeydir. Partnerinize sevginizi sözlerle ifade etmekte ustasınız ve aynı zamanda onlar için bir şeyler yaparak destek olmayı seviyorsunuz. Bu yaklaşımınız, ilişkinizi sağlam ve güvenilir kılar. Partneriniz kendini değerli ve desteklenmiş hissederken, aranızdaki bağ her geçen gün daha da güçleniyor.`,
-                            image: "https://i.pinimg.com/73x/76/b9/23/76b923a3076785e89224f895e3b3fe8c.jpg"
+                            image: "https://i.pinimg.com/736x/76/b9/23/76b923a3076785e89224f895e3b3fe8c.jpg"
                         },
                         {
                             minScore: 24,
                             maxScore: 31,
                             title: "Paylaşılan Deneyimler ve Düşünceli Jestler!",
                             description: `Aşk diliniz, birlikte geçirilen kaliteli zamanlar ve anlamlı hediyelerle zenginleşiyor. Partnerinizle yeni anılar biriktirmek, ortak deneyimler yaşamak ve onları küçük sürprizlerle mutlu etmek sizin için çok önemli. Bu, ilişkinize neşe ve heyecan katarken, aranızdaki bağı da derinleştiriyor.`,
-                            image: "https://i.pinimg.com/73x/66/e7/3e/66e73eeb665cc66f79d09bca924aea40.jpg"
+                            image: "https://i.pinimg.com/736x/66/e7/3e/66e73eeb665cc66f79d09bca924aea40.jpg"
                         },
                         {
                             minScore: 16,
                             maxScore: 23,
                             title: "Yakınlık ve Destekleyici Dokunuşlar!",
                             description: `Sevginizi fiziksel temas ve zor zamanlarda yanlarında olarak göstermeyi tercih ediyorsunuz. Dokunuşlarınız, sarılmalarınız ve destekleyici varlığınız, partnerinizin kendini güvende ve sevildiğini hissetmesini sağlıyor. Sizin için aşk, yakınlık ve şefkatle ifade edilir. Bu yaklaşımınız, ilişkinize derin bir duygusal bağ katar.`,
-                            image: "https://i.pinimg.com/73x/69/98/7b/69987ba08a2076fe6a84483d82cd7e19.jpg"
+                            image: "https://i.pinimg.com/736x/69/98/7b/69987ba08a2076fe6a84483d82cd7e19.jpg"
                         },
                         {
                             minScore: 8,
                             maxScore: 15,
                             title: "Kişisel Anlayış ve Kutlama!",
                             description: `Partnerinizin duygusal dünyasına değer veriyor, başarılarını kutlamayı ve onlara küçük, kişisel notlar yazmayı seviyorsunuz. Sizin için aşk, detaylarda ve düşünceli jestlerde gizlidir. Partnerinizin mutluluğu sizin için öncelikli olup, bu yaklaşımınız ilişkinize samimiyet ve içtenlik katıyor.`,
-                            image: "https://i.pinimg.com/73x/fb/92/d5/fb92d5d9a05f1213510c593fbbc731d8.jpg"
+                            image: "https://i.pinimg.com/736x/fb/92/d5/fb92d5d9a05f1213510c593fbbc731d8.jpg"
                         }
                     ]
                 },
@@ -2399,28 +2240,28 @@
                             maxScore: 40,
                             title: "Sarsılmaz Güven ve Şeffaflık!",
                             description: `İlişkiniz, sarsılmaz bir güven ve tam bir şeffaflık üzerine kurulu. Partnerinizin dürüstlüğüne, sözlerine ve finansal konulara yaklaşımına tamamen güveniyorsunuz. Bu derin bağ, ilişkinizi huzurlu ve istikrarlı bir limana dönüştürüyor. Her zorlukta birbirinize destek olacağınızdan eminsiniz, bu da sizi daha güçlü kılıyor.`,
-                            image: "https://i.pinimg.com/73x/66/a0/de/66a0de3c4b9a6fb550daed681ac697f3.jpg"
+                            image: "https://i.pinimg.com/736x/66/a0/de/66a0de3c4b9a6fb550daed681ac697f3.jpg"
                         },
                         {
                             minScore: 24,
                             maxScore: 31,
                             title: "Dengeli ve Destekleyici Güven!",
                             description: `İlişkinizde güven önemli bir yer tutuyor ve partnerinizin size genellikle dürüst davrandığına inanıyorsunuz. Zor zamanlarda destek bekliyorsunuz ve partnerinizin de size karşı iyi niyetli olduğunu hissediyorsunuz. Küçük şüpheler veya eksiklikler olsa da, genel olarak ilişkinizin güvenli bir ortam sunduğuna inanıyorsunuz.`,
-                            image: "https://i.pinimg.com/73x/d6/ad/55/d6ad554ace585e64b70afb5f708ffff9.jpg"
+                            image: "https://i.pinimg.com/736x/d6/ad/55/d6ad554ace585e64b70afb5f708ffff9.jpg"
                         },
                         {
                             minScore: 16,
                             maxScore: 23,
                             title: "Farkındalık Gerektiren Güven Alanları!",
                             description: `İlişkinizdeki güven seviyesi bazen dalgalanmalar gösterebiliyor. Partnerinizin bazı konulardaki tutumları veya iletişim eksiklikleri, zaman zaman şüphe duymanıza neden olabilir. Güveni daha da pekiştirmek için açık iletişim kurmak ve beklentilerinizi netleştirmek önemlidir. Unutmayın, güven zamanla inşa edilir.`,
-                            image: "https://i.pinimg.com/73x/5d/f3/74/5df374580135c630c8c5a28766674fce.jpg"
+                            image: "https://i.pinimg.com/736x/5d/f3/74/5df374580135c630c8c5a28766674fce.jpg"
                         },
                         {
                             minScore: 8,
                             maxScore: 15,
                             title: "Gelişime Açık Güven Temeli!",
                             description: `İlişkinizdeki güven temeli henüz tam olarak oturmamış olabilir veya bazı alanlarda ciddi endişeleriniz var. Partnerinizin dürüstlüğü, sadakati veya desteği konusunda şüpheleriniz olabilir. Bu durum, ilişkinizin sağlıklı ilerlemesi için acil bir diyalog ve karşılıklı çaba gerektirebilir. Güven, ilişkinin en temel direğidir.`,
-                            image: "https://i.pinimg.com/73x/53/46/89/534689762bddf314aff0d9f4b1649e53.jpg"
+                            image: "https://i.pinimg.com/736x/53/46/89/534689762bddf314aff0d9f4b1649e53.jpg"
                         }
                     ]
                 },
@@ -2516,28 +2357,28 @@
                             maxScore: 40,
                             title: "Derin ve Tutkulu Romantizm!",
                             description: `Sizin için romantizm, ilişkinizin kalbinde yer alıyor. Samimiyet, derin bağlar ve partnerinizin isteklerine odaklanma, romantik jestlerinizin temelini oluşturuyor. Her anı özel kılmak için çabalıyor, ilişkinizi tutku ve anlamla dolduruyorsunuz. Bu yaklaşımınız, ilişkinizin her zaman canlı ve heyecan verici kalmasını sağlıyor.`,
-                            image: "https://i.pinimg.com/73x/1c/20/65/1c2065a767fa919643e3937c5ae7f92e.jpg"
+                            image: "https://i.pinimg.com/736x/1c/20/65/1c2065a767fa919643e3937c5ae7f92e.jpg"
                         },
                         {
                             minScore: 24,
                             maxScore: 31,
                             title: "Düşünceli ve Etkileyici Romantizm!",
                             description: `Romantizmi, partnerinizin kalbine dokunan düşünceli jestler ve anlamlı sürprizlerle ifade etmeyi seviyorsunuz. Sizin için romantizm, sadece büyük jestlerden ibaret değil, aynı zamanda küçük detaylarda gizli. Bu yaklaşımınız, ilişkinize sıcaklık ve mutluluk katarken, partnerinizin kendini özel hissetmesini sağlıyor.`,
-                            image: "https://i.pinimg.com/73x/61/8c/96/618c96d19ae349910d424393db451757.jpg"
+                            image: "https://i.pinimg.com/736x/61/8c/96/618c96d19ae349910d424393db451757.jpg"
                         },
                         {
                             minScore: 16,
                             maxScore: 23,
                             title: "Eğlenceli ve Spontane Romantizm!",
                             description: `İlişkinizdeki romantizm, eğlence ve spontane anlarla dolu. Birlikte gülmek, dans etmek ve sıradan anları bile özel kılmak sizin için çok önemli. Romantizmin her zaman planlı olması gerekmediğine inanıyor, anın tadını çıkarmayı tercih ediyorsunuz. Bu yaklaşımınız, ilişkinizi dinamik ve neşeli tutuyor.`,
-                            image: "https://i.pinimg.com/73x/b3/5e/76/b35e767c13c85ce657e662947181300d.jpg"
+                            image: "https://i.pinimg.com/736x/b3/5e/76/b35e767c13c85ce657e662947181300d.jpg"
                         },
                         {
                             minScore: 8,
                             maxScore: 15,
                             title: "Pratik ve Anlayışlı Romantizm!",
                             description: `Romantizmi daha çok pratik ve anlayışlı bir bakış açısıyla ele alıyorsunuz. Partnerinizin rahatı ve mutluluğu sizin için öncelikli olsa da, geleneksel romantik jestlere çok fazla önem vermeyebilirsiniz. İlişkinizde daha çok güven, destek ve ortak hedeflere odaklanıyorsunuz.`,
-                            image: "https://i.pinimg.com/73x/c2/d5/b0/c2d5b047b30a5333c82eee17bfc7d5f8.jpg"
+                            image: "https://i.pinimg.com/736x/c2/d5/b0/c2d5b047b30a5333c82eee17bfc7d5f8.jpg"
                         }
                     ]
                 },
@@ -2633,28 +2474,28 @@
                             maxScore: 40,
                             title: "Açık ve Derin İletişim!",
                             description: `İlişkinizdeki iletişim tarzınız son derece açık, dürüst ve yapıcı. Her konuda rahatça konuşabiliyor, birbirinizi dinliyor ve anlıyorsunuz. Duygularınızı özgürce ifade edebilmeniz, ilişkinizin temelini oluşturan güçlü bir bağ yaratıyor. Bu iletişim becerisi, her zorluğun üstesinden gelmenizi sağlıyor.`,
-                            image: "https://i.pinimg.com/73x/e4/c0/b8/e4c0b8c95f5aaa5dfd5803182791fe0c.jpg"
+                            image: "https://i.pinimg.com/736x/e4/c0/b8/e4c0b8c95f5aaa5dfd5803182791fe0c.jpg"
                         },
                         {
                             minScore: 24,
                             maxScore: 31,
                             title: "Duyarlı ve Anlayışlı İletişim!",
                             description: `İletişiminizde partnerinizin duygularını göz önünde bulundurmaya özen gösteriyor, onları dinlemeye ve anlamaya çalışıyorsunuz. Sorunları çözmek için yapıcı yaklaşımlar sergiliyorsunuz. Bu duyarlı ve anlayışlı tarzınız, ilişkinizdeki karşılıklı saygıyı pekiştiriyor ve bağınızı güçlendiriyor.`,
-                            image: "https://i.pinimg.com/73x/b6/0a/83/b60a83572cd25fec9947fa81bb000a4b.jpg"
+                            image: "https://i.pinimg.com/736x/b6/0a/83/b60a83572cd25fec9947fa81bb000a4b.jpg"
                         },
                         {
                             minScore: 16,
                             maxScore: 23,
                             title: "Dinamik ve Gelişime Açık İletişim!",
                             description: `İlişkiniz dinamik, ancak bazen yanlış anlaşılmalar veya gerginlikler yaşanabiliyor. Mizahı kullanma eğiliminiz ilişkinize neşe katarken, ciddi konularda daha doğrudan olmak önemlidir. Duygularınızı daha açık ifade etmek ve çatışmalardan kaçınmamak, iletişiminizi daha da güçlendirecektir.`,
-                            image: "https://i.pinimg.com/73x/6c/66/5f/6c665f7af5e716798010a7efefde2e0c.jpg"
+                            image: "https://i.pinimg.com/736x/6c/66/5f/6c665f7af5e716798010a7efefde2e0c.jpg"
                         },
                         {
                             minScore: 8,
                             maxScore: 15,
                             title: "Farkındalık Gerektiren İletişim Alanları!",
                             description: `İlişkinizdeki iletişim tarzınızda bazı gelişim alanları bulunuyor. Bazen kendinizi ifade etmekte zorlanabilir, yanlış anlaşılmalar yaşayabilir veya gerginlikten kaçınabilirsiniz. Daha açık ve doğrudan iletişim kurmak, duygularınızı paylaşmak ve aktif dinleme becerilerinizi geliştirmek, ilişkinizi daha sağlıklı bir zemine taşıyacaktır.`,
-                            image: "https://i.pinimg.com/73x/24/9c/2b/249c2bf8ce637ed74f41245805b1eda3.jpg"
+                            image: "https://i.pinimg.com/736x/24/9c/2b/249c2bf8ce637ed74f41245805b1eda3.jpg"
                         }
                     ]
                 },
@@ -2750,28 +2591,28 @@
                             maxScore: 40,
                             title: "Mükemmel Uyum ve Ortaklık!",
                             description: `İlişkinizdeki uyum ve ortaklık ruhu adeta bir senfoni gibi. Her konuda birbirinizi tamamlıyor, ortak hedeflere ulaşmak için birlikte çabalıyorsunuz. Hayata bakış açınızın benzerliği ve birbirinizin başarılarını kutlamanız, ilişkinizi daha da güçlendiriyor. Bu derin bağ, sizi her zaman ileriye taşıyor.`,
-                            image: "https://i.pinimg.com/73x/9a/88/89/9a8889bf7cf052106d26e3140787340c.jpg"
+                            image: "https://i.pinimg.com/736n/9a/88/89/9a8889bf7cf052106d26e3140787340c.jpg"
                         },
                         {
                             minScore: 24,
                             maxScore: 31,
                             title: "Dengeli Uyum ve Destekleyici Ortaklık!",
                             description: `İlişkiniz genel olarak uyumlu ve destekleyici bir ortaklık sunuyor. Ortak ilgi alanlarınız ve hedefleriiniz var, ancak bazen kişisel alanlarınıza da önem veriyorsunuz. Birbirinizin farklılıklarını kabul etmeniz ve öğrenmeye açık olmanız, ilişkinizi daha da zenginleştiriyor.`,
-                            image: "https://i.pinimg.com/73x/87/4d/32/874d32dd8fd2bf44bb01e3524e7c53cb.jpg"
+                            image: "https://i.pinimg.com/736x/87/4d/32/874d32dd8fd2bf44bb01e3524e7c53cb.jpg"
                         },
                         {
                             minScore: 16,
                             maxScore: 23,
                             title: "Gelişime Açık Uyum ve Bireysel Alan!",
                             description: `İlişkinizdeki uyum seviyesi zaman zaman farklılıklar gösterebiliyor. Bazen ortak hedefler belirlemekte zorlanabilir veya bireysel alanlarınıza daha fazla odaklanabilirsiniz. Birbirinizin farklılıklarını keşfetmek ve ortak zeminler yaratmak için harika bir dönemdesiniz.`,
-                            image: "https://i.pinimg.com/73x/c2/76/cd/c276cde95f72a92c2803399abd368cf1.jpg"
+                            image: "https://i.pinimg.com/736x/c2/76/cd/c276cde95f72a92c2803399abd368cf1.jpg"
                         },
                         {
                             minScore: 8,
                             maxScore: 15,
                             title: "Farklılıkların Keşfi ve Bireysel Yönelim!",
                             description: `İlişkinizdeki uyum seviyesi henüz tam olarak oturmamış olabilir. Hayata bakış açınız veya hedefleriiniz arasında belirgin farklılıklar bulunabilir. Bu durum, ilişkinizin dinamiklerini anlamak ve üzerinde çalışmak için bir fırsat sunuyor. Açık iletişim ve karşılıklı anlayışla, bu farklılıkları zenginliğe dönüştürebilirsiniz.`,
-                            image: "https://i.pinimg.com/73x/55/96/9f/55969f2644a3811a2178cf33326b4910.jpg"
+                            image: "https://i.pinimg.com/736x/55/96/9f/55969f2644a3811a2178cf33326b4910.jpg"
                         }
                     ]
                 },
@@ -2867,28 +2708,28 @@
                             maxScore: 40,
                             title: "Derin ve Koşulsuz Duygusal Bağ!",
                             description: `İlişkiniz, derin bir empati, koşulsuz destek ve tam bir duygusal şeffaflık üzerine kurulu. Partnerinizle her türlü duygunuzu rahatça paylaşabiliyor, onun ihtiyaçlarını derinden anlıyorsunuz. Bu güçlü bağ, sizi birbirinize daha da yakınlaştırıyor ve ilişkinizi eşsiz bir hale getiriyor.`,
-                            image: "https://i.pinimg.com/73x/8b/54/2a/8b542adcd7dc638af28d143457b9261d.jpg"
+                            image: "https://i.pinimg.com/736x/8b/54/2a/8b542adcd7dc638af28d143457b9261d.jpg"
                         },
                         {
                             minScore: 24,
                             maxScore: 31,
                             title: "Anlayışlı ve Destekleyici Duygusal Bağ!",
                             description: `İlişkinizdeki duygusal bağ oldukça güçlü ve anlayışlı. Partnerinizin duygusal anlarında yanında oluyor, onu dinliyor ve destek oluyorsunuz. Duygusal ihtiyaçlarını genellikle iyi anlıyor ve ilişkinizin sağlıklı bir şekilde ilerlemesi için çabalıyorsunuz. Bu bağ, sizi birbirinize daha da kenetliyor.`,
-                            image: "https://i.pinimg.com/73x/db/21/04/db2104f2be54aff9e86656c127aa79dc.jpg"
+                            image: "https://i.pinimg.com/736x/db/21/04/db2104f2be54aff9e86656c127aa79dc.jpg"
                         },
                         {
                             minScore: 16,
                             maxScore: 23,
                             title: "Gelişime Açık Duygusal Bağ!",
                             description: `İlişkinizdeki duygusal bağ dinamik bir yapıya sahip. Bazen duygusal konuları konuşmakta zorlanabilir veya partnerinizin duygusal iniş çıkışlarına nasıl yaklaşacağınızı bilemeyebilirsiniz. Duygusal şeffaflığı artırmak ve daha fazla empati kurmak, ilişkinizi daha da derinleştirecektir.`,
-                            image: "https://i.pinimg.com/73x/a7/2b/7f/a72b7fbe8030ddb9e166a63fcdae42eb.jpg"
+                            image: "https://i.pinimg.com/736x/a7/2b/7f/a72b7fbe8030ddb9e166a63fcdae42eb.jpg"
                         },
                         {
                             minScore: 8,
                             maxScore: 15,
                             title: "Farkındalık Gerektiren Duygusal Alanlar!",
                             description: `İlişkinizdeki duygusal bağın üzerinde çalışılması gereken alanlar olabilir. Duygusal konuları konuşmaktan kaçınma veya partnerinizin duygusal ihtiyaçlarını anlamakta zorlanma eğiliminde olabilirsiniz. Daha açık iletişim kurmak ve duygusal yakınlığı artırmak için çaba göstermek, ilişkinizi daha sağlıklı bir zemine taşıyacaktır.`,
-                            image: "https://i.pinimg.com/73x/59/77/21/5977214bd0d25700fb8f11c29014f737.jpg"
+                            image: "https://i.pinimg.com/736x/59/77/21/5977214bd0d25700fb8f11c29014f737.jpg"
                         }
                     ]
                 }
@@ -3002,23 +2843,29 @@ Sonuç olarak siyaset, sadece hükümet etmek değil, toplumu nasıl bir ortak y
 `
                 },
                 {
-                    "id": "teknoloji-ve-insan-etkilesimi", // Yeni ID
-                    "title": "Teknoloji ve İnsan Etkileşimi: Geleceğe Yön Veren Bağ", // Yeni Başlık
+                    "id": "futbol-aşkı",
+                    "title": "Futbol Dünyası: Tutku ve Strateji",
                     "date": "10 Mayıs 2025",
-                    "category": "teknoloji", // Kategori Futbol'dan Teknoloji'ye dönüştü
+                    "category": "futbol",
                     "series": null,
-                    "image": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", // Teknoloji görseli
-                    "altText": "Teknoloji ve İnsan Etkileşimi Resmi",
-                    "excerpt": `Teknoloji, hayatımızın her alanına nüfuz ederken, insanla olan etkileşimi de sürekli evriliyor. Akıllı cihazlardan yapay zekaya, bu dönüşüm bizi nereye götürüyor?`,
-                    "content": `Teknoloji, modern çağın en belirleyici güçlerinden biri olarak hayatımızın her köşesine nüfuz etmiş durumda. Akıllı telefonlarımızdan evlerimizdeki cihazlara, iş yerlerimizdeki otomasyon sistemlerinden sağlık sektöründeki yeniliklere kadar her alanda teknolojinin izlerini görüyoruz. Ancak bu hızlı gelişim, insan ve teknoloji arasındaki etkileşimi de sürekli olarak yeniden şekillendiriyor.
+                    "image": "https://images.pexels.com/photos/32211784/pexels-photo-32211784/free-photo-of-mavi-koltuklu-bos-futbol-stadyumu.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                    "altText": "Futbol Resmi",
+                    "excerpt": `Bu topraklarda yetenek çok. Mahalle aralarında, köy okullarında, gecekondu sahalarında top süren binlerce çocuk var. Onların önünü açmak, sadece futbolun değil; bir toplumun geleceğine yapılan yatırımdır. Eğer biz o yolları açmazsak, başkaları gelir ve onların yolunu kapatır.`,
+                    "content": `Futbol, ülkemizde yalnızca bir spor değil; sokakların sesi, mahallelerin coşkusu, ekran başında birleşen milyonların ortak dili. Ama bu kadar sevilen bir oyunda neden dünya çapında kalıcı başarılar gelmiyor? Cevap açık: Yetenek var, ama yol yok.
 
-Günümüzde teknolojinin en çarpıcı örneklerinden biri, yapay zeka (AI) ve makine öğrenimi (ML) alanındaki ilerlemelerdir. Bu teknolojiler, verileri analiz ederek öğrenme, tahmin yapma ve hatta karar verme yeteneğine sahip sistemler yaratıyor. Örneğin, kişisel asistanlar, öneri sistemleri ve otonom araçlar, hayatımızı daha verimli ve konforlu hale getiriyor. Ancak bu durum, etik, güvenlik ve istihdam gibi önemli soruları da beraberinde getiriyor.
+Futbolun en büyük sorunu altyapıdır. Yani temelin kendisi. Yani çocuklar. Bugün bir çocuk ne kadar yetenekli olursa olsun, doğru eğitim almazsa, sistemli bir yapının parçası olmazsa, o yetenek zamanla silinir. Sadece yıldız futbolcular değil, yıldız adayları da kaybolur bu düzende. Çünkü biz hâlâ futbolu günü kurtaran kararlarla, kişilere bağlı şekillerde yönetiyoruz.
 
-Teknolojinin insan üzerindeki etkileri sadece pratik faydalarla sınırlı değil. Sosyal medyadan sanal gerçekliğe kadar uzanan dijital platformlar, iletişim kurma, bilgi edinme ve eğlenme şekillerimizi kökten değiştirdi. Bu platformlar sayesinde insanlar coğrafi sınırları aşarak bağlantı kurabiliyor, yeni topluluklar oluşturabiliyor ve küresel olaylara anında tepki verebiliyor. Ancak aynı zamanda, dijital bağımlılık, bilgi kirliliği ve mahremiyet endişeleri gibi yeni zorluklarla da karşı karşıyayız.
+Birçok kulüp altyapıyı bir gereklilik olarak görüp, göstermelik birkaç antrenmanla geçiştiriyor. Oysa altyapı, kulüplerin kalbi olmalı. Futbolcuyu sadece koşan değil; düşünen, karar verebilen ve karakter geliştirebilen bir birey olarak yetiştirmek gerekir. Ancak bizde hâlâ “koş, şut at” mantığı egemen. Antrenör değişince sistem de değişiyor. Oysa sistem, kişilerden bağımsız şekilde işlemediği sürece hiçbir yapının sürdürülebilirliği olmaz.
 
-Gelecekte teknoloji ve insan etkileşimi daha da iç içe geçecek gibi görünüyor. Giyilebilir teknolojiler, beyin-bilgisayar arayüzleri ve artırılmış gerçeklik gibi yenilikler, fiziksel ve dijital dünyalar arasındaki sınırları daha da bulanıklaştıracak. Bu gelişmeler, insan deneyimini zenginleştirme potansiyeli taşırken, aynı zamanda kimlik, bilinç ve insan olmanın anlamı üzerine yeni felsefi tartışmaları da tetikleyecektir.
+Bir çocuğun hayali futbolcu olmaksa, o hayal neye bağlı? Şansa mı? Tanıdığının birini tanımasına mı? Yoksa bir turnuvada tesadüfen dikkat çekmesine mi? Bu adaletsiz yarışta, imkânı olan öne geçiyor; gerçek yeteneklerin çoğu ise başlama düdüğü bile çalmadan oyundan düşüyor.
 
-Sonuç olarak, teknoloji sadece bir araç değil, aynı zamanda insanlığın evrimini yönlendiren güçlü bir katalizördür. Bu dönüşümde, teknolojiyi bilinçli bir şekilde tasarlamak ve kullanmak, hem bireysel refahımız hem de toplumsal geleceğimiz için kritik öneme sahiptir. İnsan ve teknoloji arasındaki bu sürekli etkileşimi anlamak ve yönetmek, 21. yüzyılın en büyük meydan okumalarından biri olmaya devam edecektir.`
+Avrupa’nın birçok ülkesinde futbol eğitimi 6-7 yaşında başlar. Her yaş grubunun teknik, fiziksel ve zihinsel gelişimi adım adım takip edilir. Ülkemizdeyse birçok genç oyuncu, 14-15 yaşına gelene kadar düzgün bir sahada dahi oynayamıyor. Tesis eksik, eğitim eksik, denetim yok. Sonra da “neden büyük liglere oyuncu gönderemiyoruz?” diye soruyoruz.
+
+Oysa altyapı, sadece futbol eğitimi değil; karakter, sorumluluk ve özgüven gelişimi de demektir. Gençlere “bir hata yaparsan her şey biter” baskısı değil; “hatalardan öğrenebilirsin” anlayışı verilmeli. Ancak birçok altyapı çalışmasında hâlâ bağırmak, yıldırmak, cezayla kontrol etmek bir yöntem olarak görülüyor. Bu yaklaşım, özgüveni değil; korkuyu büyütüyor.
+
+Bu sistem değişmeli. Futbol sadece ekonomik bir araç olarak değil, sosyal bir gelişim alanı olarak görülmeli. Yeteneği olan her çocuk, eşit şansa sahip olmalı. Kimin tanıdığı olduğu değil, neyi başarabileceği konuşulmalı. Altyapılar veriyle, eğitimle, bilimle yönetilmeli. Yoksa yetenekli çocukları kaybetmeye devam ederiz — hem sahada hem hayatta.
+
+Çünkü bu topraklarda yetenek çok. Mahalle aralarında, köy okullarında, gecekondu sahalarında top süren binlerce çocuk var. Onların önünü açmak, sadece futbolun değil; bir toplumun geleceğine yapılan yatırımdır. Eğer biz o yolları açmazsak, başkaları gelir ve onların yolunu kapatır.`
                 },
                 {
                     "id": "sosyal-yasam-ve-degisim",
@@ -3048,7 +2895,7 @@ Sosyal yaşam bir nehir gibidir. Kimi zaman akıntı sakinleşir, insanlar düze
                     "image": "https://images.pexels.com/photos/36006/renaissance-schallaburg-figures-facade.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                     "altText": "Tarih Resmi",
                     "excerpt": `Orta Doğu bugün çoğu zaman krizlerle anılıyor. Ama bu bölge, insanlığın ilk adımlarını attığı, düşünmeyi ve üretmeyi öğrendiği yerdir. Bu topraklarda geçmiş sadece toprak altında değil, insanların ruhunda da yaşamaktadır. Eğer bu geçmişi anlar, korur ve anlatırsak; sadece kendi kimliğimizi değil, insanlığın ortak mirasını da savunmuş oluruz.`,
-                    "content": `Tarih, sadece olmuş bitmiş olayların listesi değil; insanlığın hafızasıdır. Onu anlamadan geleceği inşa etmek, deniz feneri olmadan yola çıkmak gibidir. Ama ne yazık ki birçok kişi için tarih, ezberlenen savaşlar ve unutulan isimlerden ibaret kalır. Oysa gerçek tarih, bugünü açıklayan, yarını şekiliren bir pusuladır.
+                    "content": `Tarih, sadece olmuş bitmiş olayların listesi değil; insanlığın hafızasıdır. Onu anlamadan geleceği inşa etmek, deniz feneri olmadan yola çıkmak gibidir. Ama ne yazık ki birçok kişi için tarih, ezberlenen savaşlar ve unutulan isimlerden ibaret kalır. Oysa gerçek tarih, bugünü açıklayan, yarını şekilliren bir pusuladır.
 
 Az bilinen ama çok önemli bir gerçek şudur: İnsanlık, Orta Doğu’da doğdu. Bu bölge sadece çatışmalarla değil, medeniyetin kendisiyle anılmalı. Mezopotamya, tarihin bilinen ilk şehirlerini kurdu: Uruk, Eridu ve Ur. Tarım, yazı, yasa, takvim ve çark ilk burada ortaya çıktı. İnsanlar ilk kez toprakla yerleşik hayata geçtiğinde tarih başladı; işte bu yüzden tarih, Orta Doğu’nın toprağında saklıdır.
 
@@ -3160,7 +3007,7 @@ Unutmayın, İngilizce öğrenmek bir maraton, sprint değil. Tutarlı çaba ve 
             });
 
             // Blog yazılarını HTML'e basan fonksiyon
-            function displayPosts(postsToDisplay, targetElement) {
+            function displayPosts(postsToDisplay, targetElement = blogContent) {
                 targetElement.innerHTML = ''; // Önceki içeriği temizle
                 if (postsToDisplay.length === 0) {
                     if (targetElement.id === 'favorite-posts-container') {
@@ -3217,7 +3064,7 @@ Unutmayın, İngilizce öğrenmek bir maraton, sprint değil. Tutarlı çaba ve 
                         const postId = this.getAttribute('data-post-id');
                         toggleFavorite(postId);
                         // Ana sayfadaysak favori butonunun durumunu güncelle
-                        if (targetElement.id === 'blog-content' || targetElement.id === 'recent-posts-container') { // Added recent-posts-container
+                        if (targetElement.id === 'blog-content') {
                              updateFavoriteButtonState(this, postId);
                         }
                         // Favorilerim sayfasındaysak listeyi yenile
@@ -3324,28 +3171,24 @@ Unutmayın, İngilizce öğrenmek bir maraton, sprint değil. Tutarlı çaba ve 
             // Sayfa görünürlüğünü yöneten genel fonksiyon
             function showPage(pageId) {
                 // Tüm ana bölümleri gizle
-                homepageSectionsContainer.style.display = 'none'; // Ana sayfa bölümleri konteynerini gizle
                 blogContent.style.display = 'none';
-                blogSearchContainer.style.display = 'none'; // Blog arama konteynerini gizle
-                blogPagination.style.display = 'none'; // Blog sayfalama gizle
-                mainCommentsSection.style.display = 'none'; // Genel yorumlar gizle
                 aboutPageContent.style.display = 'none';
                 favoritesPageContent.style.display = 'none';
                 donationInfo.style.display = 'none';
+                document.querySelector('.pagination').style.display = 'none';
+                mainCommentsSection.style.display = 'none';
                 singlePostView.style.display = 'none';
                 privacyPolicySection.style.display = 'none';
                 relationshipTestSection.style.display = 'none';
+                homepageRelationshipTestCard.style.display = 'none'; // İlişki testi kartını başlangıçta gizle
+                homepageCategoryBoxes.style.display = 'none'; // Kategori kutularını başlangıçta gizle
 
-                if (pageId === 'ai-chat') {
-                    homepageSectionsContainer.style.display = 'block'; // Ana sayfa bölümlerini göster
-                    displayRecentPosts(); // Son yazıları yükle
-                    displayFeaturedCategories(); // Öne çıkan kategorileri yükle
-                } else if (pageId === 'blog') {
+                if (pageId === 'home') {
                     blogContent.style.display = 'block';
-                    blogSearchContainer.style.display = 'block';
-                    blogPagination.style.display = 'flex';
+                    document.querySelector('.pagination').style.display = 'flex';
                     mainCommentsSection.style.display = 'block';
-                    homepageRelationshipTestCard.style.display = 'block'; // Anasayfadaki ilişki testi kartını göster
+                    homepageRelationshipTestCard.style.display = 'block'; // Anasayfada ilişki testi kartını göster
+                    homepageCategoryBoxes.style.display = 'flex'; // Anasayfada kategori kutularını göster
                     filteredPosts = [...blogPosts];
                     loadPage(1);
                 } else if (pageId === 'about') {
@@ -3366,16 +3209,10 @@ Unutmayın, İngilizce öğrenmek bir maraton, sprint değil. Tutarlı çaba ve 
                 window.scrollTo(0, 0);
             }
 
-            // Anasayfa (Yapay Zeka) butonuna tıklama olayı
-            homeNavButton.addEventListener('click', function(event) {
+            // Anasayfa butonuna tıklama olayı
+            homeButton.addEventListener('click', function(event) {
                 event.preventDefault();
-                showPage('ai-chat');
-            });
-
-            // Yeni Blog Yazıları butonuna tıklama olayı
-            blogNavButton.addEventListener('click', function(event) {
-                event.preventDefault();
-                showPage('blog');
+                showPage('home');
             });
 
             // Favorilerim butonuna tıklama olayı
@@ -3384,13 +3221,13 @@ Unutmayın, İngilizce öğrenmek bir maraton, sprint değil. Tutarlı çaba ve 
                 showPage('favorites');
             });
 
-            // İlişki Testi butonuna tıklama olayı
+            // YENİ: İlişki Testi butonuna tıklama olayı
             relationshipTestButton.addEventListener('click', function(event) {
                 event.preventDefault();
                 showPage('relationship-test');
             });
 
-            // Anasayfadaki İlişki Testi kartının butonuna tıklama olayı
+            // YENİ: Anasayfadaki İlişki Testi kartının butonuna tıklama olayı
             homepageTestButton.addEventListener('click', function(event) {
                 event.preventDefault();
                 showPage('relationship-test');
@@ -3402,28 +3239,28 @@ Unutmayın, İngilizce öğrenmek bir maraton, sprint değil. Tutarlı çaba ve 
                 showPage('donate');
             });
 
-            // Hakkımızda sayfasındaki "Yapay Zeka'ya Geri Dön" butonuna tıklama olayı
+            // Hakkımızda sayfasındaki "Anasayfaya Geri Dön" butonuna tıklama olayı
             backToHomeButton.addEventListener('click', function(event) {
                 event.preventDefault();
-                showPage('ai-chat');
+                showPage('home');
             });
 
-            // Favorilerim sayfasındaki "Yapay Zeka'ya Geri Dön" butonuna tıklama olayı
+            // Favorilerim sayfasındaki "Anasayfaya Geri Dön" butonuna tıklama olayı
             backFromFavoritesButton.addEventListener('click', function(event) {
                 event.preventDefault();
-                showPage('ai-chat');
+                showPage('home');
             });
 
-            // Tekil yazı sayfasındaki "Blog Yazılarına Geri Dön" butonu
+            // Tekil yazı sayfasındaki "Tüm Yazılara Geri Dön" butonu
             backFromPostButton.addEventListener('click', function(event) {
                 event.preventDefault();
-                showPage('blog'); // Artık blog yazılarına geri dönüyor
+                showPage('home');
             });
 
-            // Gizlilik Politikası sayfasındaki "Yapay Zeka'ya Geri Dön" butonu
+            // Gizlilik Politikası sayfasındaki "Anasayfaya Geri Dön" butonu
             backFromPrivacyButton.addEventListener('click', function(event) {
                 event.preventDefault();
-                showPage('ai-chat');
+                showPage('home');
             });
 
             // Footer'daki Gizlilik Politikası linkine tıklama olayı
@@ -3432,7 +3269,7 @@ Unutmayın, İngilizce öğrenmek bir maraton, sprint değil. Tutarlı çaba ve 
                 showPage('privacy-policy');
             });
 
-            // Footer'daki Hakkımızda linkine tıklama olayı
+            // Yeni: Footer'daki Hakkımızda linkine tıklama olayı
             aboutFooterLink.addEventListener('click', function(event) {
                 event.preventDefault();
                 showPage('about');
@@ -3444,7 +3281,9 @@ Unutmayın, İngilizce öğrenmek bir maraton, sprint değil. Tutarlı çaba ve 
                     event.preventDefault();
                     const selectedCategory = this.getAttribute('data-category-name');
 
-                    showPage('blog'); // Kategoriye tıklayınca blog sayfasına dön ve içeriği göster
+                    showPage('home'); // Kategoriye tıklayınca ana sayfaya dön ve içeriği göster
+                    homepageRelationshipTestCard.style.display = 'none'; // Kategori seçince ilişki testi kartını gizle
+                    homepageCategoryBoxes.style.display = 'none'; // Kategori seçince ana sayfa kategori kutularını gizle
 
                     if (selectedCategory === 'all') {
                         filteredPosts = [...blogPosts];
@@ -3455,7 +3294,7 @@ Unutmayın, İngilizce öğrenmek bir maraton, sprint değil. Tutarlı çaba ve 
                     if (filteredPosts.length === 0) {
                         showModal(`'${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}' kategorisinde henüz bir yazı bulunmamaktadır.`);
                         blogContent.innerHTML = '<p style="text-align: center; color: #555;">Gösterilecek yazı bulunmamaktadır.</p>';
-                        blogPagination.style.display = 'none'; // Yazı yoksa sayfalama butonlarını gizle
+                        document.querySelector('.pagination').style.display = 'none'; // Yazı yoksa sayfalama butonlarını gizle
                         mainCommentsSection.style.display = 'none'; // Yazı yoksa yorum bölümünü de gizle
                     } else {
                         loadPage(1); // Kategori değişince ilk sayfayı yükle
@@ -3464,6 +3303,35 @@ Unutmayın, İngilizce öğrenmek bir maraton, sprint değil. Tutarlı çaba ve 
                     categoryDropdown.classList.remove('show');
                 });
             });
+
+            // Ana sayfadaki Kategori Kutularına tıklama olayı
+            if (homepageCategoryBoxes) {
+                homepageCategoryBoxes.querySelectorAll('.category-box').forEach(box => {
+                    box.addEventListener('click', function() {
+                        const selectedCategory = this.getAttribute('data-category-name');
+                        showPage('home'); // Kategoriye tıklayınca ana sayfaya dön ve içeriği göster
+                        homepageRelationshipTestCard.style.display = 'none'; // Kategori seçince ilişki testi kartını gizle
+                        homepageCategoryBoxes.style.display = 'none'; // Kategori seçince ana sayfa kategori kutularını gizle
+
+                        if (selectedCategory === 'all') { // 'all' kategorisi için tüm yazıları göster
+                            filteredPosts = [...blogPosts];
+                        } else {
+                            filteredPosts = blogPosts.filter(post => post.category === selectedCategory);
+                        }
+
+                        if (filteredPosts.length === 0) {
+                            showModal(`'${selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}' kategorisinde henüz bir yazı bulunmamaktadır.`);
+                            blogContent.innerHTML = '<p style="text-align: center; color: #555;">Gösterilecek yazı bulunmamaktadır.</p>';
+                            document.querySelector('.pagination').style.display = 'none';
+                            mainCommentsSection.style.display = 'none';
+                        } else {
+                            loadPage(1);
+                            mainCommentsSection.style.display = 'block';
+                        }
+                    });
+                });
+            }
+
 
             // Arama Butonu İşlevselliği
             searchButton.addEventListener('click', function() {
@@ -3482,7 +3350,9 @@ Unutmayın, İngilizce öğrenmek bir maraton, sprint değil. Tutarlı çaba ve 
             function performSearch() {
                 const searchTerm = searchInput.value.toLowerCase().trim();
 
-                showPage('blog'); // Arama yapınca blog sayfasına dön ve içeriği göster
+                showPage('home'); // Arama yapınca ana sayfaya dön ve içeriği göster
+                homepageRelationshipTestCard.style.display = 'none'; // Arama yapınca ilişki testi kartını gizle
+                homepageCategoryBoxes.style.display = 'none'; // Arama yapınca ana sayfa kategori kutularını gizle
 
                 if (searchTerm.length === 0) {
                     filteredPosts = [...blogPosts];
@@ -3497,7 +3367,7 @@ Unutmayın, İngilizce öğrenmek bir maraton, sprint değil. Tutarlı çaba ve 
                 if (filteredPosts.length === 0 && searchTerm.length > 0) {
                     showModal('Aradığınız terime uygun bir yazı bulunamadı.');
                     blogContent.innerHTML = '<p style="text-align: center; color: #555;">Gösterilecek yazı bulunmamaktadır.</p>';
-                    blogPagination.style.display = 'none'; // Yazı yoksa sayfalama butonlarını gizle
+                    document.querySelector('.pagination').style.display = 'none'; // Yazı yoksa sayfalama butonlarını gizle
                     mainCommentsSection.style.display = 'none'; // Yazı yoksa yorum bölümünü de gizle
                 } else {
                     loadPage(1); // Arama sonrası ilk sayfayı yükle
@@ -3698,191 +3568,6 @@ Unutmayın, İngilizce öğrenmek bir maraton, sprint değil. Tutarlı çaba ve 
             });
 
 
-            // Yapay Zeka Sohbet Fonksiyonları
-            /**
-             * Yapay zeka sohbetine mesaj gönderir.
-             */
-            async function sendAiMessage() {
-                const userMessageText = aiChatInput.value.trim();
-                if (userMessageText === "") {
-                    showModal("Lütfen bir mesaj yazın.");
-                    return;
-                }
-
-                // Kullanıcı mesajını sohbet geçmişine ekle ve göster
-                addMessageToChat(userMessageText, 'user');
-                chatHistory.push({ role: "user", parts: [{ text: userMessageText }] });
-                aiChatInput.value = ''; // Giriş alanını temizle
-
-                aiLoadingIndicator.style.display = 'block'; // Yükleniyor göstergesini göster
-                aiSendButton.disabled = true; // Gönder butonunu devre dışı bırak
-                aiChatInput.disabled = true; // Giriş alanını devre dışı bırak
-
-                // Sohbet geçmişini sınırlı tut
-                if (chatHistory.length > MAX_CHAT_HISTORY_LENGTH) {
-                    // En eski mesajları kaldır (ilk 2 mesajı, yani modelin başlangıç mesajını ve ilk kullanıcı mesajını koruyabiliriz)
-                    // Veya sadece en eski mesajları kaldırarak belirli bir boyutu koruyabiliriz.
-                    // Burada en basit haliyle, MAX_CHAT_HISTORY_LENGTH'ten fazla ise en eski mesajları kaldırıyorum.
-                    chatHistory = chatHistory.slice(chatHistory.length - MAX_CHAT_HISTORY_LENGTH);
-                }
-
-
-                try {
-                    const payload = { contents: chatHistory };
-                    const apiKey = ""; // Canvas ortamında otomatik sağlanır
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    const result = await response.json();
-
-                    if (result.candidates && result.candidates.length > 0 &&
-                        result.candidates[0].content && result.candidates[0].content.parts &&
-                        result.candidates[0].content.parts.length > 0) {
-                        const aiResponseText = result.candidates[0].content.parts[0].text;
-                        addMessageToChat(aiResponseText, 'ai');
-                        chatHistory.push({ role: "model", parts: [{ text: aiResponseText }] });
-                    } else {
-                        addMessageToChat("Üzgünüm, bir sorun oluştu veya yanıt alınamadı.", 'ai');
-                        console.error("API yanıt yapısı beklenmiyor:", result);
-                    }
-                } catch (error) {
-                    console.error("Yapay zeka yanıtı alınırken hata oluştu:", error);
-                    addMessageToChat("Yapay zeka ile iletişim kurarken bir hata oluştu. Lütfen daha sonra tekrar deneyin.", 'ai');
-                } finally {
-                    aiLoadingIndicator.style.display = 'none'; // Yükleniyor göstergesini gizle
-                    aiSendButton.disabled = false; // Gönder butonunu etkinleştir
-                    aiChatInput.disabled = false; // Giriş alanını etkinleştir
-                    aiChatInput.focus(); // Giriş alanına odaklan
-                    aiChatOutput.scrollTop = aiChatOutput.scrollHeight; // En alta kaydır
-                }
-            }
-
-            /**
-             * Mesajı sohbet çıktısına ekler.
-             * @param {string} text - Mesaj metni.
-             * @param {string} sender - Mesajı gönderen ('user' veya 'ai').
-             */
-            function addMessageToChat(text, sender) {
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('chat-message');
-                messageDiv.classList.add(`${sender}-message`);
-                messageDiv.textContent = text;
-                aiChatOutput.appendChild(messageDiv);
-                aiChatOutput.scrollTop = aiChatOutput.scrollHeight; // En alta kaydır
-            }
-
-            // Yapay Zeka Gönder butonuna tıklama olayı
-            aiSendButton.addEventListener('click', sendAiMessage);
-
-            // Yapay Zeka giriş alanında Enter tuşuna basma olayı
-            aiChatInput.addEventListener('keypress', function(event) {
-                if (event.key === 'Enter') {
-                    sendAiMessage();
-                }
-            });
-
-            // Son Yazıları Görüntüleme Fonksiyonu
-            function displayRecentPosts() {
-                // En yeni 3 yazıyı al
-                const recentPosts = [...blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
-                recentPostsContainer.innerHTML = ''; // Önceki içeriği temizle
-
-                if (recentPosts.length === 0) {
-                    recentPostsContainer.innerHTML = '<p style="text-align: center; color: #555;">Henüz son yazı bulunmamaktadır.</p>';
-                    return;
-                }
-
-                recentPosts.forEach(post => {
-                    const postElement = document.createElement('article');
-                    postElement.classList.add('blog-post');
-                    postElement.setAttribute('data-post-id', post.id);
-
-                    const isFavorite = isPostFavorite(post.id);
-                    const favoriteButtonText = isFavorite ? '<span class="icon"><i class="fas fa-star"></i></span> Favorilerimden Çıkar' : '<span class="icon"><i class="far fa-star"></i></span> Favorilere Ekle';
-                    const favoriteButtonClass = isFavorite ? 'favorite-button added' : 'favorite-button';
-
-                    postElement.innerHTML = `
-                        <h2>${post.title}</h2>
-                        <p class="post-meta">Yayınlanma Tarihi: ${post.date} | Kategori: ${post.category.charAt(0).toUpperCase() + post.category.slice(1)}</p>
-                        <img src="${post.image}" alt="${post.altText}" class="post-image" onerror="this.onerror=null;this.src='https://placehold.co/600x300/CCCCCC/000000?text=Resim+Yüklenemedi';">
-                        <p>${post.excerpt}</p>
-                        <a href="#" class="read-more" data-post-id="${post.id}">Devamını Oku</a>
-                        <button class="${favoriteButtonClass}" data-post-id="${post.id}" data-action="toggle-favorite">
-                            ${favoriteButtonText}
-                        </button>
-                        <div class="social-share">
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://example.com/${post.id}.html" target="_blank" class="fa-brands fa-facebook-f" title="Facebook'ta Paylaş"></a>
-                            <a href="https://twitter.com/intent/tweet?url=https://example.com/${post.id}.html&text=${encodeURIComponent(post.title)}" target="_blank" class="fa-brands fa-twitter" title="Twitter'da Paylaş"></a>
-                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://example.com/${post.id}.html&title=${encodeURIComponent(post.title)}" target="_blank" class="fa-brands fa-linkedin-in" title="LinkedIn'de Paylaş"></a>
-                            <a href="whatsapp://send?text=${encodeURIComponent(post.title)} - https://example.com/${post.id}.html" target="_blank" class="fa-brands fa-whatsapp" title="WhatsApp'ta Paylaş"></a>
-                        </div>
-                    `;
-                    recentPostsContainer.appendChild(postElement);
-                });
-
-                // "Devamını Oku" butonlarına ve BAŞLIKLARA click event listener ekle
-                recentPostsContainer.querySelectorAll('.read-more, .blog-post h2').forEach(element => {
-                    element.addEventListener('click', function(event) {
-                        event.preventDefault();
-                        const postId = this.getAttribute('data-post-id');
-                        displaySinglePost(postId);
-                    });
-                });
-
-                // Favori butonlarına event listener ekle
-                recentPostsContainer.querySelectorAll('.favorite-button').forEach(button => {
-                    button.addEventListener('click', function() {
-                        const postId = this.getAttribute('data-post-id');
-                        toggleFavorite(postId);
-                        updateFavoriteButtonState(this, postId);
-                    });
-                });
-            }
-
-            // Öne Çıkan Kategorileri Görüntüleme Fonksiyonu
-            function displayFeaturedCategories() {
-                const categories = [
-                    { name: "Yapay Zeka", description: "Yapay zeka dünyasındaki son gelişmeler ve geleceğe dair öngörüler.", icon: "fas fa-robot", categoryName: "yapay-zeka" },
-                    { name: "İnsanlık", description: "İnsan doğası, duygusal zeka ve toplumsal ilişkiler üzerine derinlemesine analizler.", icon: "fas fa-user-friends", categoryName: "insanlik" },
-                    { name: "Tarih", description: "Geçmişin izinde bir yolculuk: Medeniyetler, olaylar ve dersler.", icon: "fas fa-book-open", categoryName: "tarih" },
-                    { name: "Siyaset", description: "Toplumsal yaşamı şekillendiren siyasi dinamikler ve analizler.", icon: "fas fa-landmark", categoryName: "siyaset" },
-                    { name: "Teknoloji", description: "Teknolojinin hayatımızdaki yeri, yenilikler ve geleceğe etkileri.", icon: "fas fa-microchip", categoryName: "teknoloji" }, // Futbol yerine Teknoloji
-                    { name: "Hayvanlar", description: "Hayvanlar aleminin büyüleyici dünyası ve onlarla ilişkilerimiz.", icon: "fas fa-paw", categoryName: "hayvanlar" }
-                ];
-
-                featuredCategoriesContainer.innerHTML = ''; // Önceki içeriği temizle
-
-                categories.forEach(cat => {
-                    const categoryCard = document.createElement('div');
-                    categoryCard.classList.add('category-card');
-                    categoryCard.innerHTML = `
-                        <h3><i class="${cat.icon}"></i> ${cat.name}</h3>
-                        <p>${cat.description}</p>
-                    `;
-                    categoryCard.addEventListener('click', function() {
-                        // Kategoriye tıklanınca ilgili kategoriye göre blog yazılarını filtrele
-                        showPage('blog');
-                        filteredPosts = blogPosts.filter(post => post.category === cat.categoryName);
-                        if (filteredPosts.length === 0) {
-                            showModal(`'${cat.name}' kategorisinde henüz bir yazı bulunmamaktadır.`);
-                            blogContent.innerHTML = '<p style="text-align: center; color: #555;">Gösterilecek yazı bulunmamaktadır.</p>';
-                            blogPagination.style.display = 'none';
-                            mainCommentsSection.style.display = 'none';
-                        } else {
-                            loadPage(1);
-                            mainCommentsSection.style.display = 'block';
-                        }
-                    });
-                    featuredCategoriesContainer.appendChild(categoryCard);
-                });
-            }
-
-
             // Yukarı Çık butonu görünürlüğünü yönet
             window.onscroll = function() {
                 if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -3897,10 +3582,14 @@ Unutmayın, İngilizce öğrenmek bir maraton, sprint değil. Tutarlı çaba ve 
             filteredPosts = [...blogPosts]; // Başlangıçta filtrelenmiş yazılar tüm yazılarla aynı
 
             // Tarihe göre en yeniyi en üste alacak şekilde sırala
-            blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date)); // blogPosts'u da sırala
+            filteredPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-            // Sayfa yüklendiğinde varsayılan olarak Yapay Zeka sohbetini göster
-            showPage('ai-chat');
+            loadPage(1); // İlk sayfayı yükle
+
+            // Sayfa yüklendiğinde anasayfayı ve karşılama bölümünü göster
+            blogContent.style.display = 'block';
+            mainCommentsSection.style.display = 'block'; // Ana sayfada yorum bölümünü göster
+            homepageCategoryBoxes.style.display = 'flex'; // Sayfa yüklendiğinde kategori kutularını göster
 
             // Dark Mode Toggle işlevselliği
             darkModeToggle.addEventListener('click', function() {
@@ -3928,19 +3617,6 @@ Unutmayın, İngilizce öğrenmek bir maraton, sprint değil. Tutarlı çaba ve 
                     showModal("Lütfen bir yorum yazın.");
                 }
             });
-
-            // "Tüm Blog Yazılarını Görüntüle" butonuna tıklama olayı
-            viewAllBlogPostsButton.addEventListener('click', function(event) {
-                event.preventDefault();
-                showPage('blog');
-            });
-
-            // "Devamını Oku" (Hakkımızda) butonuna tıklama olayı
-            readMoreAboutUsButton.addEventListener('click', function(event) {
-                event.preventDefault();
-                showPage('about');
-            });
-
         });
 
         // Yukarı Çık fonksiyonu (globalde tanımlandı)
